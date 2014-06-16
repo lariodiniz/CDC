@@ -33,16 +33,18 @@ class MontyPython(object):
         }
         self.ordem = {}
         self.tagtext = {}
+        self.janela = janela
 
         #Opçõs de janela
-        janela.title('Controle de Combate - Beta 0.3')
-        janela.resizable(width=False, height=False)
+        self.janela.title('Controle de Combate - Beta 0.3')
+        self.janela.resizable(width=False, height=False)
 
         #Menu Superior
         principal = t.Menu(janela)
         arquivo = t.Menu(principal)
         arquivo.add_command(label="Abrir", command=self.abrir)
         arquivo.add_command(label="Salvar", command=self.salvar)
+        arquivo.add_command(label="Sair", command=self.quit)
         principal.add_cascade(label="Arquivo", menu=arquivo)
         principal.add_command(label="Ajuda", command=self.ajuda)
         principal.add_command(label="Sobre", command=self.sobre)
@@ -1936,6 +1938,7 @@ class MontyPython(object):
         try:
             with open(filename, 'rb') as savefile:
                 b = pickle.load(savefile)
+                jan.destroy()
             self.comba = b[0]
             self.ordem = b[1]
             self.turno = b[2]
@@ -2020,7 +2023,11 @@ class MontyPython(object):
                                                   title='Salvar combate')
         with open(savename, 'wb') as savefile:
             pickle.dump(a, savefile, protocol=2)
+            z.destroy()
 
+    def quit(self):
+        """ Destroy the main window. """
+        self.janela.destroy()
 
     def ajuda(self):
         webbrowser.open(
