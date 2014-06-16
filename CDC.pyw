@@ -1,5 +1,6 @@
 # -*- coding:UTF-8 -*-
 
+from __future__ import unicode_literals
 import six
 import webbrowser, pickle, random
 
@@ -1924,14 +1925,14 @@ class MontyPython:
                                   "jogador que sobrevivel recebe %i XP" % (
                                       XP, XPCJ))
 
-    #Botão Abrir         
+    #Botão Abrir
     def abrir(self):
         jan = t.Tk()
         jan.withdraw()
         filename = tkFileDialog.askopenfilename(parent=jan,
                                                 title='Open file to encrypt')
         try:
-            with open(filename) as savefile:
+            with open(filename, 'rb') as savefile:
                 b = pickle.load(savefile)
             self.comba = b[0]
             self.ordem = b[1]
@@ -2006,13 +2007,17 @@ class MontyPython:
             pass
 
     def salvar(self):
-        a = [self.comba, self.ordem, self.turno, self.turno1, self.tagtext]
+        a = [self.comba,
+             self.ordem,
+             self.turno,
+             self.turno1,
+             self.tagtext]
         z = t.Tk()
         z.withdraw()
         savename = tkFileDialog.asksaveasfilename(parent=z,
                                                   title='Salvar combate')
         with open(savename, 'wb') as savefile:
-            pickle.dump(a, savefile)
+            pickle.dump(a, savefile, protocol=2)
 
 
     def ajuda(self):
