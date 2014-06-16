@@ -16,7 +16,7 @@ elif six.PY2:
     import tkFileDialog
 
 
-class MontyPython:
+class MontyPython(object):
     """
         Programa para Mestres de Tormenta RPG, que consiste em uma serie de
         ferramentas para ajudar nos combates.
