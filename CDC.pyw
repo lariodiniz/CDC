@@ -1344,7 +1344,7 @@ class MontyPython:
         z = t.Tk()
         z.withdraw()
         savename = tkFileDialog.asksaveasfilename(parent=z, title='Salvar combate')
-        with open('savename', 'w') as savefile:
+        with open(savename, 'wb') as savefile:
             pickle.dump(a, savefile)
 
 
