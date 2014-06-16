@@ -12,7 +12,6 @@ elif six.PY2:
     import tkMessageBox
     import tkFileDialog
 
-# import tkMessageBox, webbrowser, pickle, tkFileDialog, random
 
 class MontyPython:
     """
