@@ -454,18 +454,18 @@ class MontyPython:
 
         if ARMA == '0':
             if local == 1:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe certeiro na perna direita, "
                                           "cortando um musculo.\n\n "
                                           "2 Pontos de dano em Destreza.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe profundo na perna direita, "
                                           "cortando vários musculos.\n\n "
                                           "2 Pontos de dano em Destreza. O Alvo"
                                           "cai no chão.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe cruel na perna direita, "
                                           "cortando musculos e tendões.\n\n "
@@ -476,13 +476,13 @@ class MontyPython:
                                           "Constituição. "
                                           "Esta condição dura até o alvo "
                                           "receber uma cura menor.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe perfeito na perna direita, "
                                           "dilacerando musculos e tendões.\n\n "
                                           "4 Pontos de dano em Destreza e "
                                           "Força. Perna Ferida.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe monumental na perna direita, "
                                           "rasgando uma artéria.\n\n "
@@ -495,18 +495,18 @@ class MontyPython:
                                           "Perna Inutilizada. Sangramento Maior"
                                           "O Alvo cai no chão")
             elif local == 2:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe certeiro na perna esquerda, "
                                           "cortando um musculo.\n\n "
                                           "2 Pontos de dano em Destreza.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe profundo na perna esquerda, "
                                           " cortando vários musculos.\n\n"
                                           "2 Pontos de dano em Destreza. O Alvo"
                                           "cai no  chão.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe cruel na perna esquerda, "
                                           "cortando musculos e tendões.\n\n "
@@ -516,13 +516,13 @@ class MontyPython:
                                           " rodada, sofre 1 ponto de dano de "
                                           "Constituição. Esta condição dura até"
                                           " o alvo receber uma cura menor.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe perfeito na perna esquerda, "
                                           "dilacerando musculos e tendões.\n\n"
                                           "4 Pontos de dano em Destreza e Força"
                                           "Perna Ferida.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe monumental na perna esquerda, "
                                           "rasgando uma artéria.\n\n "
@@ -535,23 +535,23 @@ class MontyPython:
                                           "Perna Inutilizada. Sangramento Maior"
                                           "O Alvo cai no chão")
             elif local >= 3 and local <= 7:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Corte leve mas dolorido no peito.\n "
                                           "\n2 Pontos de dano em Constituição")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Corte moderado na clavícula.\n\n "
                                           "2 Pontos de dano em Constituição. "
                                           "Penalidade de -2 nos ataques até o "
                                           "alvo receber uma cura menor")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Corte grave nas costelas\n\n "
                                           "4 Pontos de dano em Constituição. "
                                           "Penalidade de -2 nos ataques até o "
                                           "alvo receber uma cura maior")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Estômago aberto, expondo os "
                                           "intestinos.\n\nA  cada rodada, o "
@@ -562,7 +562,7 @@ class MontyPython:
                                           "de dano em Constituição Esta "
                                           "condição dura até o alvo receber uma"
                                           " cura maior.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Corte profundo no peito, atingindo "
                                           "e expondo órgãos internos.\n\n "
@@ -574,13 +574,13 @@ class MontyPython:
                                           "instantânea.")
             elif local == 8:
                 if des == 1:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe certeiro no braço direito "
                                               "cortando um musculo importante."
                                               "\n 2 Pontos de dano em Força. "
                                               "Escuto recebe -1 na CA.")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe profundo no braço direito "
                                               "cortando vários musculos.\n\n "
@@ -589,7 +589,7 @@ class MontyPython:
                                               "estava segurando com o braço "
                                               "atingido. "
                                               "Escuto recebe -1 na CA.")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe cruel no braço direito, "
                                               " cortando musculos e tendões.\n "
@@ -601,14 +601,14 @@ class MontyPython:
                                               "Esta condição dura até o alvo "
                                               "receber uma cura menor. Escuto "
                                               "recebe -1 na CA.")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe perfeito no braço direito
                                               dilacerando musculos e tendões.\n
                                               4 Pontos de dano em Destreza e
                                               Força. Braço Ferido. Escuto recebe
                                               -1 na CA.""")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe monumental no braço
                                               direito, rasgando uma artéria.\n\n
@@ -625,12 +625,12 @@ class MontyPython:
                                               com o braço atingido. Escuto
                                               recebe -1 na CA.""")
                 else:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe certeiro no braço direito
                                               cortando um musculo importante.\n
                                               2 Pontos de dano em Força.""")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe profundo no braço direito
                                               cortando vários musculos.\n\n
@@ -638,7 +638,7 @@ class MontyPython:
                                               derruba qualquer item que estava
                                               segurando com o braço atingido.
                                               """)
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe cruel no braço direito,
                                               cortando musculos e tendões.\n\n
@@ -649,13 +649,13 @@ class MontyPython:
                                               dano de Constituição. Esta
                                               condição dura até o alvo receber
                                               uma cura menor.""")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe perfeito no braço direito
                                               dilacerando musculos e tendões.\n
                                               4 Pontos de dano em Destreza e
                                               Força. Braço Ferido.""")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               """Golpe monumental no braço
                                               direito, rasgando uma artéria.\n\n
@@ -673,13 +673,13 @@ class MontyPython:
                                               """)
             elif local == 9:
                 if des == 1:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe certeiro no braço direito
                                                cortando um musculo importante.\n
                                               2 Pontos de dano em Força. Escuto
                                               recebe -1 na CA.""")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe profundo no braço direito
                                               cortando vários musculos.\n\n
@@ -687,7 +687,7 @@ class MontyPython:
                                               derruba qualquer item que estava
                                               segurando com o braço atingido.
                                               Escuto recebe -1 na CA.""")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe cruel no braço direito,
                                               cortando musculos e tendões.\n\n
@@ -699,14 +699,14 @@ class MontyPython:
                                               condição dura até o alvo receber
                                               uma cura menor. Escuto recebe -1
                                               na CA.""")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe perfeito no braço direito
                                               dilacerando musculos e tendões.\n
                                               4 Pontos de dano em Destreza e
                                               Força. Braço Ferido. Escuto recebe
                                               -1 na CA.""")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe monumental no braço
                                               direito, rasgando uma artéria.\n\n
@@ -723,12 +723,12 @@ class MontyPython:
                                                com o braço atingido. Escuto
                                                recebe -1 na CA.""")
                 else:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe certeiro no braço direito
                                               cortando um musculo importante.\n
                                               2 Pontos de dano em Força.""")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe profundo no braço direito
                                               cortando vários musculos.\n\n
@@ -736,7 +736,7 @@ class MontyPython:
                                               derruba qualquer item que estava
                                               segurando com o braço atingido.
                                               """)
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe cruel no braço direito,
                                               cortando musculos e tendões.\n\n
@@ -747,13 +747,13 @@ class MontyPython:
                                               dano de Constituição. Esta
                                               condição dura até o alvo receber
                                               uma cura menor.""")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe perfeito no braço direito
                                               dilacerando musculos e tendões.\n
                                               4 Pontos de dano em Destreza e
                                               Força. Braço Ferido.""")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               """Golpe monumental no braço
                                               direito, rasgando uma artéria.\n\n
@@ -770,26 +770,26 @@ class MontyPython:
                                               segurando com o braço atingido.
                                               """)
             elif local == 10:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           """Corte na bochecha.\n\n2 Pontos de
                                           dano em Carisma.""")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           """Corte no nariz.\n\n2 Pontos de dano
                                           em Carisma. Sangramento""")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           """Orelha decepada.\n\n4 Pontos de
                                           dano em Carisma. Penalidade de - em
                                           testes de Iniciativa e Percepção.""")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           """Corte na testa.\n\n4 Pontos de dano
                                           em Carisma. Sangramento Maior. Alvo
                                           coloca a mão na cabeça, em dor e fica
                                           atordoado por uma rodada.""")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           """Corte na jugular.\n\nO Alvo perde
                                           20% de seus PV máximos por rodada.
@@ -801,18 +801,18 @@ class MontyPython:
                                           instantânea.""")
         if ARMA == '1':
             if local == 1:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Pancada certeiro na perna direita, "
                                           "esmagando os musculos.\n\n2 Pontos "
                                           "de dano em Destreza.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Pancada forte na perna direita, "
                                           "causando uma fratura.\n\n2 Pontos "
                                           "de dano em Destreza. O Alvo perde a "
                                           "sua próxima ação de movimento.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Pancada Terrivel na perna direita, "
                                           " causando várias fraturas e "
@@ -820,13 +820,13 @@ class MontyPython:
                                           "de dano em Destreza. O Deslocamento "
                                           "do alvo é reduzido à metade por um "
                                           "minuto.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           " Golpe cruel na perna direita, "
                                           "quebrando o membro.\n\n4 Pontos de "
                                           " dano em Destreza e Força. Perna "
                                           "Ferida ")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Perna Direita",
                                           "Golpe devastador na perna direita, "
                                           "quebrando o membro em vários lugares"
@@ -844,18 +844,18 @@ class MontyPython:
                                           "permanente em Destreza. Perna "
                                           "inutilizada. O alvo cai no chão. ")
             elif local == 2:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Pancada certeiro na perna esquerda "
                                           "esmagando os musculos.\n\n2 Pontos "
                                           "de dano em Destreza.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Pancada forte na perna esquerda, "
                                           "causando uma fratura.\n\n2 Pontos de"
                                           "dano em Destreza. O Alvo perde a sua"
                                           "próxima ação de movimento.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Pancada Terrivel na perna esquerda, "
                                           "causando várias fraturas e "
@@ -863,13 +863,13 @@ class MontyPython:
                                           "de dano em Destreza. O Deslocamento "
                                           "do alvo é reduzido à metade por um "
                                           "minuto.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe cruel na perna esquerda, "
                                           "quebrando o membro.\n\n4 Pontos de "
                                           "dano em Destreza e Força. Perna "
                                           "Ferida.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Perna Esquerda",
                                           "Golpe devastador na perna esquerda, "
                                           "quebrando o membro em vários lugares"
@@ -886,32 +886,32 @@ class MontyPython:
                                           "Força e Destreza. 2 pontos de dano "
                                           "permanente em Destreza. Perna "
                                           "inutilizada. O alvo cai no chão.")
-            elif local >= 3 and local <= 7:
-                if severidade >= 1 and severidade <= 3:
+            elif 3 <= local <= 7:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Pancada forte, abalando os órgãos "
                                           "internos do alvo.\n\n2 Pontos de "
                                           "dano em Constituição.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Pancada muito forte, causando uma "
                                           "fratura.\n\n2 Pontos de dano em "
                                           "Constituição. O alvo é empurrado "
                                           "1,5m em uma direção à escolha do "
                                           "atacante.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Pancada terrível, rompendo inúmeros "
                                           "órgãos.\n\n4 Pontos de dano em "
                                           "Constituição e o alvo ainda perde "
                                           "sua próxima ação padrão.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Golpe brutal, quebrando o esterno e "
                                           "várias costelas\n\n4 Pontos de dano "
                                           "em Constituiçã. Alvo fica enjoado "
                                           "por 1 minuto.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico no Tronco",
                                           "Golpe assustador.\n\nO esterno se "
                                           "quebra, várias costelas se "
@@ -929,14 +929,14 @@ class MontyPython:
                                           "instantânea.")
             elif local == 8:
                 if des == 1:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada forte no braço direito, "
                                               "abalando os músculos do alvo e "
                                               "talvez causando uma fratura.\n\n"
                                               "2 Pontos de dano em Força. "
                                               "Escuto recebe -1 na CA.")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada muito forte, causando "
                                               "uma fraturado no braço direito. "
@@ -945,7 +945,7 @@ class MontyPython:
                                               "estava segurando com o braço "
                                               "atingido. Escuto recebe "
                                               "-1 na CA.")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada terrívelno braço "
                                               "direito, causando várias "
@@ -955,13 +955,13 @@ class MontyPython:
                                               "alvo não pode atacar com o braço"
                                               "direito."
                                               "Escuto recebe -1 na CA.")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe perfeito, quebrando o "
                                               "braço direito.\n\n4 Pontos de "
                                               "dano em Destreza e Força. Braço "
                                               "Ferido. Escuto recebe -1 na CA.")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe devastador, quebrando o "
                                               "braço direito em varios lugares "
@@ -985,13 +985,13 @@ class MontyPython:
                                               "segurando com o braço atingido."
                                               "Escuto recebe -1 na CA.")
                 else:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada forte no braço direito, "
                                               "abalando os músculos do alvo e "
                                               "talvez causando uma fratura.\n\n"
                                               "2 Pontos de dano em Força.")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada muito forte, causando "
                                               "uma fraturado no braço direito. "
@@ -999,7 +999,7 @@ class MontyPython:
                                               "Alvo derruba qualquer item que "
                                               "estava segurando com o braço "
                                               "atingido.")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Pancada terrívelno braço "
                                               "direito, causando várias "
@@ -1008,13 +1008,13 @@ class MontyPython:
                                               "em Força. Na próxima rodada o "
                                               "alvo não pode atacar com o braço "
                                               "direito.")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe perfeito, quebrando o "
                                               "braço direito.\n\n4 Pontos de "
                                               "dano em Destreza e Força. Braço "
                                               "Ferido. Escuto recebe -1 na CA.")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Direito",
                                               "Golpe devastador, quebrando o "
                                               "braço direito em varios lugares "
@@ -1038,14 +1038,14 @@ class MontyPython:
                                               "segurando com o braço atingido.")
             elif local == 9:
                 if des == 1:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada forte no braço esquerdo "
                                               "abalando os músculos do alvo e "
                                               "talvez causando uma fratura.\n\n"
                                               "2 Pontos de dano em Força."
                                               "Escuto recebe -1 na CA.")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada muito forte, causando "
                                               "uma fraturado no braço esquerdo."
@@ -1054,7 +1054,7 @@ class MontyPython:
                                               " estava segurando com o braço "
                                               "atingido. Escuto recebe -1 na "
                                               "CA.")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada terrívelno braço "
                                               "esquerdo, causando várias "
@@ -1064,14 +1064,14 @@ class MontyPython:
                                               "alvo não pode atacar com o braço "
                                               "direito. Escuto recebe -1 na "
                                               "CA.")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Golpe perfeito, quebrando o "
                                               "braço esquerdo.\n\n4 Pontos de "
                                               "dano em Destreza e Força. Braço "
                                               "Ferido. Escuto recebe -1 na CA. "
                         )
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Golpe devastador, quebrando o "
                                               "braço esquerdo em varios lugares"
@@ -1096,13 +1096,13 @@ class MontyPython:
                                               "segurando com o braço atingido. "
                                               "Escuto recebe -1 na CA.")
                 else:
-                    if severidade >= 1 and severidade <= 3:
+                    if 1 <= severidade <= 3:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada forte no braço esquerdo "
                                               "abalando os músculos do alvo e "
                                               "talvez causando uma fratura.\n\n"
                                               "2 Pontos de dano em Força.")
-                    elif severidade >= 4 and severidade <= 6:
+                    elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada muito forte, causando "
                                               "uma fraturado no braço esquerdo."
@@ -1110,7 +1110,7 @@ class MontyPython:
                                               "Alvo derruba qualquer item que "
                                               "estava segurando com o braço "
                                               "atingido.")
-                    elif severidade >= 7 and severidade <= 8:
+                    elif 7 <= severidade <= 8:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Pancada terrívelno braço "
                                               "esquerdo, causando várias "
@@ -1119,13 +1119,13 @@ class MontyPython:
                                               "em Força. Na próxima rodada o "
                                               "alvo não pode atacar com o braço"
                                               " direito.")
-                    elif severidade >= 9 and severidade <= 10:
+                    elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Golpe perfeito, quebrando o "
                                               "braço esquerdo.\n\n4 Pontos de "
                                               "dano em Destreza e Força. Braço "
                                               "Ferido. Escuto recebe -1 na CA.")
-                    elif severidade >= 11 and severidade <= 12:
+                    elif 11 <= severidade <= 12:
                         tkMessageBox.showinfo("Critico no Braço Esquerdo",
                                               "Golpe devastador, quebrando o "
                                               "braço esquerdo em varios lugares"
@@ -1148,30 +1148,30 @@ class MontyPython:
                                               "qualquer item que estava "
                                               "segurando com o braço atingido.")
             elif local == 10:
-                if severidade >= 1 and severidade <= 3:
+                if 1 <= severidade <= 3:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           "Pancada forte na cabeça, "
                                           "causando tontura.\n\n "
                                           "2 Pontos de dano em Sabedoria.")
-                elif severidade >= 4 and severidade <= 6:
+                elif 4 <= severidade <= 6:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           "Pancada muito forte na cabeça, "
                                           "causando desorientação.\n\n2 Pontos "
                                           "de dano em Sabedoria. Alvo fica "
                                           "pasmo por uma rodada.")
-                elif severidade >= 7 and severidade <= 8:
+                elif 7 <= severidade <= 8:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           "Pancada terrível na cabeça, "
                                           "causando forte desorientação. "
                                           " \n\n4 pontos de dano em Sabedoria. "
                                           "Alvo fica atordoado uma rodada.")
-                elif severidade >= 9 and severidade <= 10:
+                elif 9 <= severidade <= 10:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           "Golpe certeiro na cabeça, com força "
                                           "devastadora.\n\n4 Pontos de dano em "
                                           "Inteligencia e Sabedoria. Alvo fica "
                                           "atordoado por 1d3 rodadas.")
-                elif severidade >= 11 and severidade <= 12:
+                elif 11 <= severidade <= 12:
                     tkMessageBox.showinfo("Critico na Cabeça",
                                           "Golpe monstruoso na cabeça. "
                                           "O crânio do alvo racha, num "
