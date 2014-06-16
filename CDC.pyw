@@ -2,7 +2,9 @@
 
 from __future__ import unicode_literals
 import six
-import webbrowser, pickle, random
+import webbrowser
+import pickle
+import random
 
 if six.PY3:
     import tkinter as t
