@@ -1269,7 +1269,8 @@ class MontyPython:
         jan.withdraw()
         filename = tkFileDialog.askopenfilename(parent=jan, title='Open file to encrypt')
         try:
-            b = pickle.load(open(filename))
+            with open(filename) as savefile:
+                b = pickle.load(savefile)
             self.comba = b[0]
             self.ordem = b[1]
             self.turno = b[2]
@@ -1343,10 +1344,9 @@ class MontyPython:
         z = t.Tk()
         z.withdraw()
         savename = tkFileDialog.asksaveasfilename(parent=z, title='Salvar combate')
-        try:
-            pickle.dump(a, open(savename, 'w'))
-        except IOError:
-            pass
+        with open('savename', 'w') as savefile:
+            pickle.dump(a, savefile)
+
 
 
     def ajuda(self):
