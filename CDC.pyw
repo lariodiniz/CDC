@@ -166,8 +166,8 @@ class MontyPython(object):
         self.frame2_2_3_2.pack()
 
         #Fontes
-        fonte1 = ('Ariel', '9', 'bold')
-        fonte2 = ('Ariel', '10', 'bold')
+        fonte1 = ('Arial', '9', 'bold')
+        fonte2 = ('Arial', '10', 'bold')
 
         #Titulo
         self.titulo = t.Label(self.frame1, text='Controle de Combate - Beta',
