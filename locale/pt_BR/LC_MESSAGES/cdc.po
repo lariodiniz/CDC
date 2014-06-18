@@ -1,0 +1,1007 @@
+# Portuguese translations for PACKAGE package
+# Traduções em português brasileiro para o pacote PACKAGE.
+# Copyright (C) 2014 ORGANIZATION
+# Gabriel Abdalla Cavalcante Silva <01388863189@rf0020500023170>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: asddfPACKAGE VERSION\n"
+"POT-Creation-Date: 2014-06-18 11:52+BRT\n"
+"PO-Revision-Date: 2014-06-18 14:24-0300\n"
+"Last-Translator: Gabriel Abdalla Cavalcante Silva "
+"<01388863189@rf0020500023170>\n"
+"Language-Team: Brazilian Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: CDC.pyw:363
+msgid "weapon_dmg_type"
+msgstr "Qual é o tipo de dano causado pela arma do atacante?"
+
+#: CDC.pyw:367
+msgid "Corte"
+msgstr ""
+
+#: CDC.pyw:367
+msgid "Esmagamento"
+msgstr ""
+
+#: CDC.pyw:368
+msgid "Perfuração"
+msgstr ""
+
+#: CDC.pyw:369
+msgid "Energia"
+msgstr ""
+
+#: CDC.pyw:373
+msgid "weapon_multiplier"
+msgstr "Qual é o multiplicador da arma do atacante?"
+
+#: CDC.pyw:381
+msgid "atker_size"
+msgstr "Qual é o tamanho do atacante"
+
+#: CDC.pyw:386
+msgid "Mínimo ou menor"
+msgstr ""
+
+#: CDC.pyw:386
+msgid "Pequeno"
+msgstr ""
+
+#: CDC.pyw:387
+msgid "Grande"
+msgstr ""
+
+#: CDC.pyw:387 CDC.pyw:397
+msgid "Média"
+msgstr ""
+
+#: CDC.pyw:388
+msgid "Enorme ou Maior"
+msgstr ""
+
+#: CDC.pyw:392
+msgid "def_height"
+msgstr "Qual é a armadura do defensor"
+
+#: CDC.pyw:396
+msgid "Leve"
+msgstr ""
+
+#: CDC.pyw:396
+msgid "Nenhuma"
+msgstr ""
+
+#: CDC.pyw:397
+msgid "Pesada"
+msgstr ""
+
+#: CDC.pyw:401
+msgid "def_shield"
+msgstr "O defensor usa escudo?"
+
+#: CDC.pyw:405
+msgid "Escudo Braço Direito"
+msgstr ""
+
+#: CDC.pyw:405
+msgid "Nenhum"
+msgstr ""
+
+#: CDC.pyw:406
+msgid "Escudo Braço esquerdo"
+msgstr ""
+
+#: CDC.pyw:411
+msgid "Gerar Critico"
+msgstr ""
+
+#: CDC.pyw:464
+msgid "0_1_1_sev_3"
+msgstr ""
+"Golpe certeiro na perna direita, cortando um músculo.\n"
+"\n"
+"2 Pontos de dano em Destreza.\""
+
+#: CDC.pyw:466
+msgid "0_1_4_sev_6"
+msgstr ""
+"Golpe profundo na perna direita,cortando vários músculos.\n"
+"\n"
+"2 Pontos de dano em Destreza. O Alvo cai no chão.\""
+
+#: CDC.pyw:468
+msgid "0_1_7_sev_8"
+msgstr ""
+"Golpe cruel na perna direita, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza. Perna com corte aberto: sempre que o alvo "
+"deslocar-se 3m ou mais em uma rodada, sofre 1 ponto de dano de Constituição. "
+"Esta condição dura até o alvo receber uma cura menor.\""
+
+#: CDC.pyw:470
+msgid "0_1_9_sev_10"
+msgstr ""
+"Golpe perfeito na perna direita, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida.\""
+
+#: CDC.pyw:472
+msgid "0_1_11_sev_12"
+msgstr ""
+"Golpe monumental na perna direita, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida. Sangramento Maior\""
+
+#: CDC.pyw:474
+msgid "0_1_sev_13"
+msgstr ""
+"Perna direita decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Inutilizada. Sangramento Maior. "
+"O Alvo cai no chão\""
+
+#: CDC.pyw:477
+msgid "0_2_1_sev_3"
+msgstr ""
+"Golpe certeiro na perna esquerda, cortando um musculo.\n"
+"\n"
+"2 Pontos de dano em Destreza.\""
+
+#: CDC.pyw:479
+msgid "0_2_4_sev_6"
+msgstr ""
+"Golpe profundo na perna esquerda, cortando vários musculos.\n"
+"\n"
+"2 Pontos de dano em Destreza. O Alvo cai no chão.\""
+
+#: CDC.pyw:481
+msgid "0_2_7_sev_8"
+msgstr ""
+"Golpe cruel na perna esquerda, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza. Perna com corte aberto: sempre que o alvo "
+"deslocar-se 3m ou mais em uma rodada, sofre 1 ponto de dano de Constituição. "
+"Esta condição dura até o alvo receber uma cura menor.\""
+
+#: CDC.pyw:483
+msgid "0_2_9_sev_10"
+msgstr ""
+"Golpe perfeito na perna esquerda, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida.\""
+
+#: CDC.pyw:485
+msgid "0_2_11_sev_12"
+msgstr ""
+"Golpe monumental na perna esquerda, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida. Sangramento Maior\""
+
+#: CDC.pyw:487
+msgid "0_2__sev_13"
+msgstr ""
+"Perna esquerda decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Inutilizada. Sangramento Maior. "
+"O Alvo cai no chão\""
+
+#: CDC.pyw:490
+msgid "0_37_1_sev_3"
+msgstr ""
+"Corte leve mas dolorido no peito.\n"
+"\n"
+"2 Pontos de dano em Constituição.\""
+
+#: CDC.pyw:492
+msgid "0_37_4_sev_6"
+msgstr ""
+"Corte moderado na clavícula.\n"
+"\n"
+"2 Pontos de dano em Constituição. Penalidade de -2 nos ataques até o alvo "
+"receber uma cura menor\""
+
+#: CDC.pyw:494
+msgid "0_37_7_sev_8"
+msgstr ""
+"Corte grave nas costelas\n"
+"\n"
+"4 Pontos de dano em Constituição. Penalidade de -2 nos ataques até o alvo "
+"receber uma cura maior\""
+
+#: CDC.pyw:496
+msgid "0_37_9_sev_10"
+msgstr ""
+"Estômago aberto, expondo os intestinos.\n"
+"\n"
+"A cada rodada, o alvo deve deixar um braço livre e usar uma ação de "
+"movimento para manter as tripas dentro de si. Caso não faça isso, sofre 4 "
+"pontos de dano em Constituição. Esta condição dura até o alvo receber uma "
+"cura maior.\""
+
+#: CDC.pyw:498
+msgid "0_37_11_sev_12"
+msgstr ""
+"Corte profundo no peito, atingindo e expondo órgãos internos.\n"
+"\n"
+"4 Pontos de dano permanente de Constituição. Sangramento Maior\""
+
+#: CDC.pyw:500
+msgid "0_37__sev_13"
+msgstr "O Alvo é cortado no meio. Morte instantânea.\""
+
+#: CDC.pyw:504
+msgid "0_8_1_1_sev_3"
+msgstr ""
+"Golpe certeiro no braço direito, cortando um musculo importante.\n"
+"\n"
+"2 Pontos de dano em Força. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:506
+msgid "0_8_1_4_sev_6"
+msgstr ""
+"Golpe profundo no braço direito, cortando vários musculos.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:508
+msgid "0_8_1_7_sev_8"
+msgstr ""
+"Golpe cruel no braço direito, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Força. Braço com corte aberto: sempre que o alvo "
+"realizar um ataque com o braço atingido, sofre 1 ponto de dano de "
+"Constituição. Esta condição dura até o alvo receber uma cura menor. Escuto "
+"recebe -1 na CA.\""
+
+#: CDC.pyw:510
+msgid "0_8_1_9_sev_10"
+msgstr ""
+"Golpe perfeito no braço direito, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:512
+msgid "0_8_1_11_sev_12"
+msgstr ""
+"Golpe monumental no braço direito, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Sangramento Maior. "
+"Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:514
+msgid "0_8_1__sev_13"
+msgstr ""
+"Braço direito decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Inutilizado. Sangramento Maior. "
+"O Alvo derruba qualquer item que estava segurando com o braço atingido. "
+"Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:517
+msgid "0_8__1_sev_3"
+msgstr ""
+"Golpe certeiro no braço direito, cortando um musculo importante.\n"
+"\n"
+"2 Pontos de dano em Força.\""
+
+#: CDC.pyw:519
+msgid "0_8__4_sev_6"
+msgstr ""
+"Golpe profundo no braço direito, cortando vários musculos.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido.\""
+
+#: CDC.pyw:521
+msgid "0_8__7_sev_8"
+msgstr ""
+"Golpe cruel no braço direito, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Força. Braço com corte aberto: sempre que o alvo "
+"realizar um ataque com o braço atingido, sofre 1 ponto de dano de "
+"Constituição. Esta condição dura até o alvo receber uma cura menor.\""
+
+#: CDC.pyw:523
+msgid "0_8__9_sev_10"
+msgstr ""
+"Golpe perfeito no braço direito, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido.\""
+
+#: CDC.pyw:525
+msgid "0_8__11_sev_12"
+msgstr ""
+"Golpe monumental no braço direito, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Sangramento Maior\""
+
+#: CDC.pyw:527
+msgid "0_8____sev_13"
+msgstr ""
+"Braço direito decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Inutilizado. Sangramento Maior. "
+"O Alvo derruba qualquer item que estava segurando com o braço atingido.\""
+
+#: CDC.pyw:531
+msgid "0_9_1_1_sev_3"
+msgstr ""
+"Golpe certeiro no braço direito, cortando um musculo importante.\n"
+"\n"
+"2 Pontos de dano em Força. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:533
+msgid "0_9_1_4_sev_6"
+msgstr ""
+"Golpe profundo no braço direito, cortando vários musculos.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:535
+msgid "0_9_1_7_sev_8"
+msgstr ""
+"Golpe cruel no braço direito, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Força. Braço com corte aberto: sempre que o alvo "
+"realizar um ataque com o braço atingido, sofre 1 ponto de dano de "
+"Constituição. Esta condição dura até o alvo receber uma cura menor. Escuto "
+"recebe -1 na CA.\""
+
+#: CDC.pyw:537
+msgid "0_9_1_9_sev_10"
+msgstr ""
+"Golpe perfeito no braço direito, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:539
+msgid "0_9_1_11_sev_12"
+msgstr ""
+"Golpe monumental no braço direito, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Sangramento Maior. "
+"Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:541
+msgid "0_9_1___sev_13"
+msgstr ""
+"Braço direito decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Inutilizado. Sangramento Maior. "
+"O Alvo derruba qualquer item que estava segurando com o braço atingido. "
+"Escuto recebe -1 na CA.\""
+
+#: CDC.pyw:544
+msgid "0_9__1_sev_3"
+msgstr ""
+"Golpe certeiro no braço direito, cortando um musculo importante.\n"
+"\n"
+"2 Pontos de dano em Força.\""
+
+#: CDC.pyw:546
+msgid "0_9__4_sev_6"
+msgstr ""
+"Golpe profundo no braço direito, cortando vários musculos.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido.\""
+
+#: CDC.pyw:548
+msgid "0_9__7_sev_8"
+msgstr ""
+"Golpe cruel no braço direito, cortando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Força. Braço com corte aberto: sempre que o alvo "
+"realizar um ataque com o braço atingido, sofre 1 ponto de dano de "
+"Constituição. Esta condição dura até o alvo receber uma cura menor.\""
+
+#: CDC.pyw:550
+msgid "0_9__9_sev_10"
+msgstr ""
+"Golpe perfeito no braço direito, dilacerando musculos e tendões.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido.\""
+
+#: CDC.pyw:552
+msgid "0_9__11_sev_12"
+msgstr ""
+"Golpe monumental no braço direito, rasgando uma artéria.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Sangramento Maior\""
+
+#: CDC.pyw:554
+msgid "0_9_____sev_13"
+msgstr ""
+"Braço direito decepada.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Inutilizado. Sangramento Maior. "
+"O Alvo derruba qualquer item que estava segurando com o braço atingido.\""
+
+#: CDC.pyw:557
+msgid "0_10___1_sev_3"
+msgstr ""
+"Corte na bochecha.\n"
+"\n"
+"2 Pontos de dano em Carisma.\""
+
+#: CDC.pyw:559
+msgid "0_10___4_sev_6"
+msgstr ""
+"Corte no nariz.\n"
+"\n"
+"2 Pontos de dano em Carisma. Sangramento\""
+
+#: CDC.pyw:561
+msgid "0_10___7_sev_8"
+msgstr ""
+"Orelha decepada.\n"
+"\n"
+"4 Pontos de dano em Carisma. Penalidade de - em testes de Iniciativa e "
+"Percepção.\""
+
+#: CDC.pyw:563
+msgid "0_10___9_sev_10"
+msgstr ""
+"Corte na testa.\n"
+"\n"
+"4 Pontos de dano em Carisma. Sangramento Maior. Alvo coloca a mão na cabeça, "
+"em dor e fica atordoado por uma rodada.\""
+
+#: CDC.pyw:565
+msgid "0_10___11_sev_12"
+msgstr ""
+"Corte na jugular.\n"
+"\n"
+"O Alvo perde 20% de seus PV máximos por rodada. Esta condição dura até o "
+"alvo receber uma cura maior, ou morrer.\""
+
+#: CDC.pyw:567
+msgid "0_10_____sev_13"
+msgstr ""
+"O Alvo é decapitado.\n"
+"\n"
+"Morte instantânea.\""
+
+#: CDC.pyw:571
+msgid "1_1__1_sev_3"
+msgstr ""
+"Pancada certeiro na perna direita, esmagando os musculos.\n"
+"\n"
+"2 Pontos de dano em Destreza.\""
+
+#: CDC.pyw:573
+msgid "1_1__4_sev_6"
+msgstr ""
+"Pancada forte na perna direita, causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Destreza. O Alvo perde a sua próxima ação de movimento.\""
+
+#: CDC.pyw:575
+msgid "1_1__7_sev_8"
+msgstr ""
+"Pancada Terrivel na perna direita, causando várias fraturas e contrações nos "
+"músculos\n"
+"\n"
+"4 Pontos de dano em Destreza. O Deslocamento do alvo é reduzido à metade por "
+"um minuto.\""
+
+#: CDC.pyw:577
+msgid "1_1__9_sev_10"
+msgstr ""
+"Golpe cruel na perna direita, quebrando o membro.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida.\""
+
+#: CDC.pyw:579
+msgid "1_1__11_sev_12"
+msgstr ""
+"Golpe devastador na perna direita, quebrando o membro em vários lugares ou "
+"estraçalhando o joelho.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. 2 pontos de dano permanente em "
+"Destreza. Perna Ferida.\""
+
+#: CDC.pyw:581
+msgid "1_1____sev_13"
+msgstr ""
+"Golpe perfeito na perna direita.\n"
+"\n"
+"O membro se parte em varios lugares, o osso torna-se uma pasta "
+"esbranquiçada. 4 pontos de dano em Força e Destreza. 2 pontos de dano "
+"permanente em Destreza. Perna inutilizada. O alvo cai no chão.\""
+
+#: CDC.pyw:584
+msgid "1_2__1_sev_3"
+msgstr ""
+"Pancada certeiro na perna esquerda, esmagando os musculos.\n"
+"\n"
+"2 Pontos de dano em Destreza.\""
+
+#: CDC.pyw:586
+msgid "1_2__4_sev_6"
+msgstr ""
+"Pancada forte na perna esquerda, causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Destreza. O Alvo perde a sua próxima ação de movimento.\""
+
+#: CDC.pyw:588
+msgid "1_2__7_sev_8"
+msgstr ""
+"Pancada Terrivel na perna esquerda, causando várias fraturas e contrações "
+"nos músculos\n"
+"\n"
+"4 Pontos de dano em Destreza. O Deslocamento do alvo é reduzido à metade por "
+"um minuto.\""
+
+#: CDC.pyw:590
+msgid "1_2__9_sev_10"
+msgstr ""
+"Golpe cruel na perna esquerda, quebrando o membro.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Perna Ferida.\""
+
+#: CDC.pyw:592
+msgid "1_2__11_sev_12"
+msgstr ""
+"Golpe devastador na perna esquerda, quebrando o membro em vários lugares ou "
+"estraçalhando o joelho.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. 2 pontos de dano permanente em "
+"Destreza. Perna Ferida.\""
+
+#: CDC.pyw:594
+msgid "1_2____sev_13"
+msgstr ""
+"Golpe perfeito na perna esquerda.\n"
+"\n"
+"O membro se parte em varios lugares, o osso torna-se uma pasta "
+"esbranquiçada. 4 pontos de dano em Força e Destreza. 2 pontos de dano "
+"permanente em Destreza. Perna inutilizada. O alvo cai no chão.\""
+
+#: CDC.pyw:597
+msgid "1_37__1_sev_3"
+msgstr ""
+"Pancada forte, abalando os órgãos internos do alvo.\n"
+"\n"
+"2 Pontos de dano em Constituição.\""
+
+#: CDC.pyw:599
+msgid "1_37__4_sev_6"
+msgstr ""
+"Pancada muito forte, causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Constituição. O alvo é empurrado 1,5m em uma direção à "
+"escolha do atacante.\""
+
+#: CDC.pyw:601
+msgid "1_37__7_sev_8"
+msgstr ""
+"Pancada terrível, rompendo inúmeros órgãos.\n"
+"\n"
+"4 Pontos de dano em Constituição e o alvo ainda perde sua próxima ação "
+"padrão.\""
+
+#: CDC.pyw:603
+msgid "1_37__9_sev_10"
+msgstr ""
+"Golpe brutal, quebrando o esterno e várias costelas\n"
+"\n"
+"4 Pontos de dano em Constituiçã. Alvo fica enjoado por 1 minuto.\""
+
+#: CDC.pyw:605
+msgid "1_37__11_sev_12"
+msgstr ""
+"Golpe assustador.\n"
+"\n"
+"O esterno se quebra, várias costelas se esfacelam, fragmentos de ossos "
+"perfuram multiplos órgãos internos. A saúde do alvo é comprometida para "
+"sempre. 4 pontos de dano em Constituição. Alvo fica atordoado por 1 rodada e "
+"enjoado por 1 minuto.\""
+
+#: CDC.pyw:607
+msgid "1_37____sev_13"
+msgstr ""
+"Algo se parte dentro do alvo, perfurando um órgão vital. Morte instantânea."
+
+#: CDC.pyw:611
+msgid "1_8_1_1_sev_3"
+msgstr ""
+"Pancada forte no braço direito, abalando os músculos do alvo e talvez "
+"causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Força. Escuto recebe -1 na CA."
+
+#: CDC.pyw:613
+msgid "1_8_1_4_sev_6"
+msgstr ""
+"Pancada muito forte, causando uma fraturado no braço direito.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:615
+msgid "1_8_1_7_sev_8"
+msgstr ""
+"Pancada terrívelno braço direito, causando várias fraturas e contrações nos "
+"músculos.\n"
+"\n"
+"4 Pontos de dano em Força. Na próxima rodada o alvo não pode atacar com o "
+"braço direito. Escuto recebe -1 na CA."
+
+#: CDC.pyw:617
+msgid "1_8_1_9_sev_10"
+msgstr ""
+"Golpe perfeito, quebrando o braço direito.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:619
+msgid "1_8_1_11_sev_12"
+msgstr ""
+"Golpe devastador, quebrando o braço direito em varios lugares ou "
+"estraçalhando o cotovelo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Dor latejante impõe "
+"penalidade de -2 em jogadas e teste por 1 minuto. Escuto recebe -1 na CA."
+
+#: CDC.pyw:621
+msgid "1_8_1___sev_13"
+msgstr ""
+"Golpe perfeito. O braço direito se parte em vários lugares, o osso torna-se "
+"uma pasta esbranquiçada.\n"
+"\n"
+"4 pontos de dano em Força e Destreza. 2 pontos de dano permanente em Força."
+"Braço inutilizado. Obviamente, o alvo derruba qualquer item que estava "
+"segurando com o braço atingido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:624
+msgid "1_8___1_sev_3"
+msgstr ""
+"Pancada forte no braço direito, abalando os músculos do alvo e talvez "
+"causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Força."
+
+#: CDC.pyw:626
+msgid "1_8___4_sev_6"
+msgstr ""
+"Pancada muito forte, causando uma fraturado no braço direito.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido."
+
+#: CDC.pyw:628
+msgid "1_8___7_sev_8"
+msgstr ""
+"Pancada terrívelno braço direito, causando várias fraturas e contrações nos "
+"músculos.\n"
+"\n"
+"4 Pontos de dano em Força. Na próxima rodada o alvo não pode atacar com o "
+"braço direito."
+
+#: CDC.pyw:630
+msgid "1_8___9_sev_10"
+msgstr ""
+"Golpe perfeito, quebrando o braço direito.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:632
+msgid "1_8___11_sev_12"
+msgstr ""
+"Golpe devastador, quebrando o braço direito em varios lugares ou "
+"estraçalhando o cotovelo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Dor latejante impõe "
+"penalidade de -2 em jogadas e teste por 1 minuto."
+
+#: CDC.pyw:634
+msgid "1_8_____sev_13"
+msgstr ""
+"Golpe perfeito. O braço direito se parte em vários lugares, o osso torna-se "
+"uma pasta esbranquiçada.\n"
+"\n"
+"4 pontos de dano em Força e Destreza. 2 pontos de dano permanente em Força."
+"Braço inutilizado. Obviamente, o alvo derruba qualquer item que estava "
+"segurando com o braço atingido."
+
+#: CDC.pyw:638
+msgid "1_9_1_1_sev_3"
+msgstr ""
+"Pancada forte no braço esquerdo, abalando os músculos do alvo e talvez "
+"causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Força. Escuto recebe -1 na CA."
+
+#: CDC.pyw:640
+msgid "1_9_1_4_sev_6"
+msgstr ""
+"Pancada muito forte, causando uma fraturado no braço esquerdo.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:642
+msgid "1_9_1_7_sev_8"
+msgstr ""
+"Pancada terrívelno braço esquerdo, causando várias fraturas e contrações nos "
+"músculos.\n"
+"\n"
+"4 Pontos de dano em Força. Na próxima rodada o alvo não pode atacar com o "
+"braço direito. Escuto recebe -1 na CA."
+
+#: CDC.pyw:644
+msgid "1_9_1_9_sev_10"
+msgstr ""
+"Golpe perfeito, quebrando o braço esquerdo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:646
+msgid "1_9_1_11_sev_12"
+msgstr ""
+"Golpe devastador, quebrando o braço esquerdo em varios lugares ou "
+"estraçalhando o cotovelo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Dor latejante impõe "
+"penalidade de -2 em jogadas e teste por 1 minuto. Escuto recebe -1 na CA."
+
+#: CDC.pyw:648
+msgid "1_9_1___sev_13"
+msgstr ""
+"Golpe perfeito. O braço esquerdo se parte em vários lugares, o osso torna-se "
+"uma pasta esbranquiçada.\n"
+"\n"
+"4 pontos de dano em Força e Destreza. 2 pontos de dano permanente em Força."
+"Braço inutilizado. Obviamente, o alvo derruba qualquer item que estava "
+"segurando com o braço atingido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:651
+msgid "1_9___1_sev_3"
+msgstr ""
+"Pancada forte no braço esquerdo, abalando os músculos do alvo e talvez "
+"causando uma fratura.\n"
+"\n"
+"2 Pontos de dano em Força."
+
+#: CDC.pyw:653
+msgid "1_9___4_sev_6"
+msgstr ""
+"Pancada muito forte, causando uma fraturado no braço esquerdo.\n"
+"\n"
+"2 Pontos de dano em Força. O Alvo derruba qualquer item que estava segurando "
+"com o braço atingido."
+
+#: CDC.pyw:655
+msgid "1_9___7_sev_8"
+msgstr ""
+"Pancada terrívelno braço esquerdo, causando várias fraturas e contrações nos "
+"músculos.\n"
+"\n"
+"4 Pontos de dano em Força. Na próxima rodada o alvo não pode atacar com o "
+"braço direito."
+
+#: CDC.pyw:657
+msgid "1_9___9_sev_10"
+msgstr ""
+"Golpe perfeito, quebrando o braço esquerdo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Escuto recebe -1 na CA."
+
+#: CDC.pyw:659
+msgid "1_9___11_sev_12"
+msgstr ""
+"Golpe devastador, quebrando o braço esquerdo em varios lugares ou "
+"estraçalhando o cotovelo.\n"
+"\n"
+"4 Pontos de dano em Destreza e Força. Braço Ferido. Dor latejante impõe "
+"penalidade de -2 em jogadas e teste por 1 minuto."
+
+#: CDC.pyw:661
+msgid "1_9_____sev_13"
+msgstr ""
+"Golpe perfeito. O braço esquerdo se parte em vários lugares, o osso torna-se "
+"uma pasta esbranquiçada.\n"
+"\n"
+"4 pontos de dano em Força e Destreza. 2 pontos de dano permanente em Força."
+"Braço inutilizado. Obviamente, o alvo derruba qualquer item que estava "
+"segurando com o braço atingido."
+
+#: CDC.pyw:664
+msgid "1_10___1_sev_3"
+msgstr ""
+"Pancada forte na cabeça, causando tontura.\n"
+"\n"
+"2 Pontos de dano em Sabedoria."
+
+#: CDC.pyw:666
+msgid "1_10___4_sev_6"
+msgstr ""
+"Pancada muito forte na cabeça, causando desorientação.\n"
+"\n"
+"2 Pontos de dano em Sabedoria. Alvo fica pasmo por uma rodada."
+
+#: CDC.pyw:668
+msgid "1_10___7_sev_8"
+msgstr ""
+"Pancada terrível na cabeça, causando forte desorientação. \n"
+"\n"
+"4 pontos de dano em Sabedoria. Alvo fica atordoado uma rodada."
+
+#: CDC.pyw:670
+msgid "1_10___9_sev_10"
+msgstr ""
+"Golpe certeiro na cabeça, com força devastadora.\n"
+"\n"
+"4 Pontos de dano em Inteligencia e Sabedoria. Alvo fica atordoado por 1d3 "
+"rodadas."
+
+#: CDC.pyw:672
+msgid "1_10___11_sev_12"
+msgstr ""
+"Golpe monstruoso na cabeça. O crânio do alvo racha, num ferimento horrível\n"
+"\n"
+"O alvo nunca mais será o mesmo. 4 pontos de dano em Inteligência e "
+"Sabedoria. 2 pontos de dano permanente em inteligência e Sabedoria. Alvo "
+"fica atordoado por 1d3 rodadas."
+
+#: CDC.pyw:674
+msgid "1_10_____sev_13"
+msgstr "O Crânio do alvo é esmagado, num golpe brutal. Morte Instantânea."
+
+#: CDC.pyw:680
+msgid "Gerador de Tabuleiro de Combate"
+msgstr ""
+
+#: CDC.pyw:681
+msgid "tab_text"
+msgstr ""
+
+#: CDC.pyw:694 CDC.pyw:722
+msgid "Tabuleiro de Combate - Mestre"
+msgstr ""
+
+#: CDC.pyw:698
+msgid "Tabuleiro de Combate - Jogador"
+msgstr ""
+
+#: CDC.pyw:708 CDC.pyw:729
+msgid "Add ao Tabuleiro"
+msgstr ""
+
+#: CDC.pyw:1077
+msgid "alt_ini_error"
+msgstr ""
+
+#: CDC.pyw:1077 CDC.pyw:1107 CDC.pyw:1111 CDC.pyw:1115 CDC.pyw:1122
+#: CDC.pyw:1143 CDC.pyw:1147 CDC.pyw:1151 CDC.pyw:1158 CDC.pyw:1303
+#: CDC.pyw:1317 CDC.pyw:1331
+msgid "Faltou Informações"
+msgstr ""
+
+#: CDC.pyw:1107 CDC.pyw:1143
+msgid "hp_error"
+msgstr ""
+"Certifique-se que o campo Pontos de Vida esta preenchido com um numero "
+"inteiro."
+
+#: CDC.pyw:1111 CDC.pyw:1147
+msgid "lvl_error"
+msgstr "Certifique-se que o campo Nivel esta preenchido com um numero Real."
+
+#: CDC.pyw:1115 CDC.pyw:1151
+msgid "ini_error"
+msgstr ""
+"Certifique-se que o campo Alterar iniciativa esta preenchido com um numero "
+"inteiro e que um combatente esteja selecionado."
+
+#: CDC.pyw:1122 CDC.pyw:1158
+msgid "name_error"
+msgstr "Certifique-se que o campo \"Nome\" esta preenchido com um texto."
+
+#: CDC.pyw:1129 CDC.pyw:1165
+msgid "Nome Repetido"
+msgstr ""
+
+#: CDC.pyw:1129 CDC.pyw:1165
+msgid "name_repeat_error"
+msgstr ""
+"Certifique-se que o campo \"Nome\" esta preenchido com um nome que não "
+"exista.\n"
+"Caso seja um personagem padrão, coloque um numero para diferênciar."
+
+#: CDC.pyw:1265
+msgid "Preencha o Status"
+msgstr ""
+
+#: CDC.pyw:1268
+msgid "Descrição do Status"
+msgstr ""
+
+#: CDC.pyw:1273
+msgid "Duração(turnos)"
+msgstr ""
+
+#: CDC.pyw:1278
+msgid "ADD Status"
+msgstr ""
+
+#: CDC.pyw:1282 CDC.pyw:1342
+msgid "Combatente não selecionado"
+msgstr ""
+
+#: CDC.pyw:1283 CDC.pyw:1343
+msgid "char_error"
+msgstr "Certifique-se que você escolheu um combatente."
+
+#: CDC.pyw:1303
+msgid "days_error"
+msgstr ""
+"Certifique-se que o campo Passar Dias esta preenchido com um numero inteiro."
+
+#: CDC.pyw:1317
+msgid "error_heal"
+msgstr ""
+"Certifique-se que o campo Curar esta preenchido com um numero inteiro e que "
+"um combatente esteja selecionado."
+
+#: CDC.pyw:1331
+msgid "error_dmg"
+msgstr ""
+"Certifique-se que o campo Causar Dano esta preenchido com um numero inteiro "
+"e que um combatente esteja selecionado."
+
+#: CDC.pyw:1361
+msgid "Luta Fácil"
+msgstr ""
+
+#: CDC.pyw:1361
+msgid "easy_fight"
+msgstr ""
+
+#: CDC.pyw:1365
+msgid "XP ganho"
+msgstr ""
+
+#: CDC.pyw:1375
+msgid "Open file to encrypt"
+msgstr ""
+
+#: CDC.pyw:1418
+msgid "Está fora de combate"
+msgstr ""
+
+#: CDC.pyw:1436
+msgid "Turno: "
+msgstr ""
+
+#: CDC.pyw:1461
+msgid "Salvar combate"
+msgstr ""
+
+#: CDC.pyw:1475
+msgid "Sobre"
+msgstr ""
+
+#: CDC.pyw:1476
+msgid "about"
+msgstr ""
+"Controle de Combate foi criado por Lário Diniz  distribuído pela "
+"Dados&Desventuras. \n"
+"\n"
+" Para , sugestões de programas que ajudem  e jogadores ou reportar erros, "
+"enviar  para dadosedesventuras@gmail.com.\n"
+"\n"
+" O  utilizado para calculo de XP é o do  RPG. \n"
+"\n"
+"Entre no Blog .blogspot.com.br para mais informações."
