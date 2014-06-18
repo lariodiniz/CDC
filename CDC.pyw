@@ -20,6 +20,52 @@ translate = gettext.translation('cdc', 'locale')
 _ = translate.gettext
 
 
+class Character(object):
+    """ Base class for players or monsters. """
+    CHAR_TYPE = (
+        (0, 'Player'),
+        (1, 'NPC')
+    )
+    name = None
+    level = None
+    hp = None
+    init_value = None
+    init_order = None
+    ammo = None
+    char_type = None
+    size = None
+    errors = None
+
+
+    def clean_int_fields(self, field):
+        try:
+            int(field)
+        except ValueError:
+            print("error")
+
+    @property
+    def cleaned_data(self):
+        """ Check all the fields and runs clean methods for each one """
+        if None in [self.name, self.level, self.hp, self.init_value]:
+            print(_("All attributes muste be provided."))
+            return False
+
+        self.clean_int_fields(self.level)
+        self.clean_int_fields(self.hp)
+        self.clean_int_fields(self.init_value)
+        return True
+
+    def save(self, **kwargs):
+        """ Create a character and populate the right fields. """
+        print(self.cleaned_data)
+        if self.cleaned_data:
+            self.name = kwargs.get('name')
+            self.level = kwargs.get('level')
+            self.hp = kwargs.get('hp')
+            self.init_value = kwargs.get('init_value')
+            self.ammo = kwargs.get('ammo')
+
+
 class MontyPython(object):
     """
         Programa para Mestres de Tormenta RPG, que consiste em uma serie de
