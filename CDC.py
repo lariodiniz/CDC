@@ -261,10 +261,11 @@ class MontyPython(object):
                               variable=self.tamanho)
             a.pack(side=t.LEFT)
         self.botaopersonagem = t.Button(self.frame2_1_1_2_2, text='Personagem',
-                                        width=10, command=lambda: self.add_char(char_type=0))
+                                        width=10,
+                                        command=lambda: self.add_char(0))
         self.botaopersonagem.pack(pady=5, padx=10)
         self.botaomonstro = t.Button(self.frame2_1_1_2_2, text='NPC', width=10,
-                                     command=lambda: self.add_char(char_type=1))
+                                     command=lambda: self.add_char(1))
         self.botaomonstro.pack(pady=5, padx=10)
 
         #Campo Controle de Status(contido no frame2_1_2)
