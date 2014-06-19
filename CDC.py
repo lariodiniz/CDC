@@ -35,7 +35,6 @@ class Character(object):
     char_type = None
     size = None
     errors = None
-    saved = False
 
     def __repr__(self):
         return "%s - %s" % (self.name, self.hp)
@@ -65,7 +64,7 @@ class Character(object):
         """
         Verify if the chartype defined is one of the expected options.
         """
-        pass
+        raise NotImplementedError
 
 
 class MontyPython(object):
