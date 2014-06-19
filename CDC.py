@@ -36,27 +36,31 @@ class Character(object):
     size = None
     errors = None
 
-    @staticmethod
-    def clean_int_fields(field):
+    def clean_int_fields(self, field):
         try:
             int(field)
         except ValueError:
-            print("error")
+            self.errors = "A INT value must be provided for the field %s" % field
         except TypeError:
-            print("No value defined for field %s" % field
-            )
+            self.errors = "No value defined for field %s" % field
 
     @property
     def cleaned_data(self):
         """ Check all the fields and runs clean methods for each one """
-        if None in [self.name, self.level, self.hp, self.init_value]:
-            print("All attributes muste be provided.")
+        if None in [self.name, self.level, self.hp, self.init_value,
+                    self.char_type, self.size]:
+            self.errors = "All attributes muste be provided."
             return False
 
         self.clean_int_fields(self.level)
         self.clean_int_fields(self.hp)
         self.clean_int_fields(self.init_value)
         return True
+
+    def clean_char_type(self):
+        """
+        Verify if the chartype defined is one of the expected options.
+        """
 
     def save(self, **kwargs):
         """ Create a character and populate the right fields. """
