@@ -31,7 +31,6 @@ class Character(object):
     level = None
     hp = None
     init_value = None
-    init_order = None
     ammo = None
     char_type = None
     size = None
