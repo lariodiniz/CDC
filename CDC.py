@@ -66,7 +66,7 @@ class Character(object):
         """
         raise NotImplementedError
 
-
+#TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
 class MontyPython(object):
     """
         Programa para Mestres de Tormenta RPG, que consiste em uma serie de
@@ -212,6 +212,27 @@ class MontyPython(object):
         self.frame2_2_3_2 = t.Frame(self.frame2_2_3)
         self.frame2_2_3_2.pack()
 
+        self.vez_text = t.StringVar()
+        self.vez1_text = t.StringVar()
+        self.vez2_text = t.StringVar()
+
+        self.vez_text.set('Turno: 1',)
+        self.vez1_text.set('Not Selected')
+        self.vez2_text.set('Not Selected')
+
+        self.vez = t.Label(self.frame2_2_1_2_2_2,
+                           textvariable=self.vez_text,
+                           fg='darkblue')
+        self.vez.pack()
+        self.vez1 = t.Label(self.frame2_2_1_2_2_2,
+                            textvariable=self.vez1_text,
+                            fg='darkblue',
+                            font=('Verdana', '12', 'bold'))
+        self.vez1.pack()
+        self.vez2 = t.Label(self.frame2_2_1_2_2_2,
+                            textvariable=self.vez2_text,
+                            fg='darkblue')
+        self.vez2.pack()
         #Fontes
         fonte1 = ('Arial', '9', 'bold')
         fonte2 = ('Arial', '10', 'bold')
@@ -312,7 +333,7 @@ class MontyPython(object):
                                      command=self.sort)
         self.botaoordcomb.pack(side=t.LEFT, pady=5, padx=5)
         self.botaopassturn = t.Button(self.frame2_1_3_2, text='Passar Turno',
-                                      command=self.passturn)
+                                      command=self.shift_turn)
         self.botaopassturn.pack(side=t.LEFT, pady=5, padx=5)
 
         #Campo Tabuleiro de Combate(contido no frame2_1_4)
@@ -365,8 +386,8 @@ class MontyPython(object):
                                      font=fonte1, command=self.critico)
         self.botaocritico.pack(side=t.LEFT, pady=5, padx=5)
 
-    # Definindo comando dos Botões--------------------
-    # Criar Matriz de Combate:
+
+    #TODO: Rewrite
     def critico(self):
         self.janelacr = t.Tk()
         self.janelacr.title('Critico')
@@ -461,6 +482,7 @@ class MontyPython(object):
                                  command=self.gecritico)
         self.gerarcri.pack(side=t.LEFT, pady=5, padx=5)
 
+    #TODO: Rewrite
     def gecritico(self):
         des = 0
         ARMA = self.arma.get()
@@ -729,7 +751,7 @@ class MontyPython(object):
                 elif severidade >= 13:
                     tkMessageBox.showinfo(head, _("1_10_____sev_13"))
 
-
+    #TODO: What to do with this?
     def gerarmatriz(self):
         self.tagtext = {}
         self.result = tkMessageBox.askquestion(
@@ -793,6 +815,7 @@ class MontyPython(object):
                     self.matriz.create_line(i, z, i, -z)
             self.matriz.bind('<B1-Motion>', self.movermatriz)
 
+    #TODO: What to do with this?
     #Movendo circulo na Matriz
     def movermatriz(self, event):
         if self.result == 'yes':
@@ -866,6 +889,7 @@ class MontyPython(object):
             self.matriz.coords((nome), coordsa[0], coordsa[1], coordsa[2],
                                coordsa[3])
 
+    #TODO: What to do with this?
     #Botão adicionar Matriz
     def add_matriz(self):
         if self.result == 'yes':
@@ -1174,16 +1198,26 @@ class MontyPython(object):
         for char in char_sorted:
             self.listboxp.insert(t.END, char)
 
+    #TODO: Finish IT!!
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
         if not self.listboxp.curselection():
             if self.listboxp.get(0, t.END):
-                self.listboxp.activate(0)
+                self.listboxp.selection_set(t.FIRST)
+
+        lbox_char = self.listboxp.get(self.listboxp.curselection()[0])
+        char = self._retrieve_char_instance_from_listbox(lbox_char)
+
+        self.turno1 += 1
+        self.vez_text.set(self.turno1)
+        self.vez1_text.set(char.name)
+
+        if 0 <= char.hp:
+
+            self.vez2_text.set(_('Out of Combat'))
 
 
-
-
-
+    #TODO: Destroy after finish the shift_turn method.
     #Botão Passar Turno
     def passturn(self):
         fonte1 = ('Ariel', '9', 'bold')
@@ -1197,6 +1231,8 @@ class MontyPython(object):
         SANGUE = self.comba[b][1]
         if SANGUE <= 0:
             self.turno1 += 1
+            self.vez1.destroy()
+            self.vez2.destroy()
             c = '%s' % self.NOME
             d = 'Está fora de combate'
             if TURSTA > 0:
@@ -1216,20 +1252,12 @@ class MontyPython(object):
             self.vez2.destroy()
         except:
             pass
-        self.vez = t.Label(self.frame2_2_1_2_2_2, text='Turno: ' +
-                                                       str(self.turno1),
-                           fg='darkblue')
-        self.vez.pack()
-        self.vez1 = t.Label(self.frame2_2_1_2_2_2, text=c, fg='darkblue',
-                            font=('Verdana', '12', 'bold'))
-        self.vez1.pack()
-        self.vez2 = t.Label(self.frame2_2_1_2_2_2, text=d, fg='darkblue')
-        self.vez2.pack()
         if self.turno < len(a) - 1:
             self.turno += 1
         else:
             self.turno = 0
 
+    #TODO: Rewrite
     #Botão Adicionar Status    
     def addstatus(self):
         try:
@@ -1270,12 +1298,14 @@ class MontyPython(object):
             tkMessageBox.showinfo(_("Combatente não selecionado"),
                                   _("char_error"))
 
+    #TODO: Rewrite
     #Botão Status 
     def status(self):
         self.comba[self.nomestat][5][0] = self.campo_desst.get()
         self.comba[self.nomestat][5][1] = int(self.campo_turnat.get())
         self.z.destroy()
 
+    #TODO: Rewrite.
     #Botão Passar Dias    
     def passar_dias(self):
         try:
@@ -1290,6 +1320,7 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("days_error"))
 
+    #TODO: Rewwrite
     #Botão Curar
     def curar(self):
         try:
@@ -1304,6 +1335,7 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("error_heal"))
 
+    #TODO: Rewrite
     #Botão Dano
     def dano_recebido(self):
         try:
@@ -1318,6 +1350,7 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("error_dmg"))
 
+    #TODO REWRITE
     #Botão Remover
     def remover(self):
         try:
@@ -1330,6 +1363,7 @@ class MontyPython(object):
             tkMessageBox.showinfo(_("Combatente não selecionado"),
                                   _("char_error"))
 
+    #TODO: Make modules and extendables interfaces.
     #Botão Calculo de XP
     def calculoxp(self):
         NDC = 0
