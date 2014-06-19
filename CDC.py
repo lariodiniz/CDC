@@ -1535,7 +1535,7 @@ class MontyPython(object):
         tkMessageBox.showinfo(_("Sobre"),
                               _("about"))
 
-
-swallow = t.Tk()
-MontyPython(swallow)
-swallow.mainloop()
+if __name__ == '__main__':
+    swallow = t.Tk()
+    MontyPython(swallow)
+    swallow.mainloop()
