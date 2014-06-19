@@ -290,7 +290,7 @@ class MontyPython(object):
         self.t_con_sta2.pack()
         self.botaoaltini = t.Button(self.frame2_1_2_2_2_2_1, width=14,
                                     text='Alterar Iniciativa',
-                                    command=self.altini)
+                                    command=self.change_initiative)
         self.botaoaltini.pack(side=t.LEFT)
         self.campo_altini = t.Entry(self.frame2_1_2_2_2_2_1, width=10)
         self.campo_altini.pack(side=t.LEFT)
@@ -1117,44 +1117,24 @@ class MontyPython(object):
                                                             anchor=t.CENTER)
                 self.tagtext[nome] = a
 
-    #Botão Adicionar Personagens
-    def altini(self):
-        try:
-            INICI = self.campo_altini.get()
-            a = map(int, self.listboxp.curselection())
-            c = self.listboxp.get(a[0], last=None)
-            d = c.split(' - ')
-            self.comba[d[0]][3] = int(INICI)
-            self.ordem[d[0]] = [int(INICI)]
-            self.listboxp.delete(t.ANCHOR)
-            self.listboxp.insert(a[0], str(self.comba[d[0]][0]) + ' - ' +
-                                 str(self.comba[d[0]][1]))
-        except:
+    def change_initiative(self):
+        """
+        Change the initiative_value of the selected object into the specified
+        value.
+        """
+        new_init = self.campo_altini.get()
+        lbox_selection = self.listboxp.curselection()
+        if not new_init or not lbox_selection:
             tkMessageBox.showerror(_("Faltou Informações"),_("alt_ini_error"))
-        z = self.ordem
-        y = z
-        w = {}
-        a = 1
-        z = sorted(self.ordem.values())
-        z = z[::-1]
-        for i in z:
-            for x in y:
-                if y[x] == i:
-                    w[x] = a
-                    a += 1
-        for i in w:
-            for x in self.comba:
-                if i == x:
-                    self.comba[x][4] = w[i]
+            return False
 
-        self.listboxp.delete(0, t.END)
-        for i in range(a):
-            for x in self.comba:
-                if i + 1 == self.comba[x][4]:
-                    self.listboxp.insert(t.END, str(self.comba[x][0]) + ' - ' +
-                                         str(self.comba[x][1]))
+        lbox_char = self.listboxp.get(lbox_selection[0])
+        lchar = [ char for char in self.chars if str(char) == lbox_char]
 
-                    #Botão adicionar personagem
+        if lchar:
+            lchar[0].init_value = new_init
+            self.listboxp.delete(lbox_selection[0])
+            self.listboxp.insert(t.END, lchar[0])
 
     def add_char(self, char_type):
         """ Add chars into the list of chars. """
