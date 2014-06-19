@@ -35,6 +35,10 @@ class Character(object):
     char_type = None
     size = None
     errors = None
+    saved = False
+
+    def __repr__(self):
+        return "%s - %s" % (self.name, self.hp)
 
     def clean_int_fields(self, field):
         try:
@@ -61,16 +65,7 @@ class Character(object):
         """
         Verify if the chartype defined is one of the expected options.
         """
-
-    def save(self, **kwargs):
-        """ Create a character and populate the right fields. """
-
-        if self.cleaned_data:
-            self.name = kwargs.get('name')
-            self.level = kwargs.get('level')
-            self.hp = kwargs.get('hp')
-            self.init_value = kwargs.get('init_value')
-            self.ammo = kwargs.get('ammo')
+        pass
 
 
 class MontyPython(object):
@@ -266,10 +261,10 @@ class MontyPython(object):
                               variable=self.tamanho)
             a.pack(side=t.LEFT)
         self.botaopersonagem = t.Button(self.frame2_1_1_2_2, text='Personagem',
-                                        width=10, command=self.adicionarper)
+                                        width=10, command=lambda: self.add_char(char_type=0))
         self.botaopersonagem.pack(pady=5, padx=10)
         self.botaomonstro = t.Button(self.frame2_1_1_2_2, text='NPC', width=10,
-                                     command=self.adicionarmon)
+                                     command=lambda: self.add_char(char_type=1))
         self.botaomonstro.pack(pady=5, padx=10)
 
         #Campo Controle de Status(contido no frame2_1_2)
@@ -1161,78 +1156,19 @@ class MontyPython(object):
 
                     #Botão adicionar personagem
 
-    def adicionarper(self):
-        try:
-            PV = int(self.campo_pv.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("hp_error"))
-        try:
-            NIVEL = float(self.campo_nivel.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("lvl_error"))
-        try:
-            INICI = int(self.campo_iniciativa.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("ini_error"))
-        try:
-            NOME = str(self.campo_nome.get())
-            if NOME == '':
-                del (NOME)
-                NOME += 1
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("name_error"))
-        try:
-            for i in self.comba:
-                if i == NOME:
-                    del (NOME)
-                    NOME += 1
-        except:
-            tkMessageBox.showerror(_("Nome Repetido"), _("name_repeat_error"))
-        try:
-            TAMANHO = self.tamanho.get()
-            self.comba[NOME] = [NOME, PV, NIVEL, INICI, 0, ['', 0], TAMANHO, 0]
-            self.ordem[NOME] = [INICI]
-            self.listboxp.insert(t.END, str(NOME) + ' - ' + str(PV))
-        except:
-            pass
+    def add_char(self, char_type):
+        """ Add chars into the list of chars. """
+        char = Character()
+        char.name = self.campo_nome.get()
+        char.hp = self.campo_pv.get()
+        char.level = self.campo_nivel.get()
+        char.init_value = self.campo_iniciativa.get()
+        char.size = self.tamanho.get()
+        char.char_type = 0
+        if char.cleaned_data:
+            self.listboxp.insert(t.END, char)
 
-    #Botão Adicionar NPC    
-    def adicionarmon(self):
-        try:
-            PV = int(self.campo_pv.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("hp_error"))
-        try:
-            NIVEL = float(self.campo_nivel.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("lvl_error"))
-        try:
-            INICI = int(self.campo_iniciativa.get())
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("ini_error"))
-        try:
-            NOME = str(self.campo_nome.get())
-            if NOME == '':
-                del (NOME)
-                NOME += 1
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("name_error"))
-        try:
-            for i in self.comba:
-                if i == NOME:
-                    del (NOME)
-                    NOME += 1
-        except:
-            tkMessageBox.showerror(_("Nome Repetido"), _("name_repeat_error"))
-        try:
-            TAMANHO = self.tamanho.get()
-            self.comba[NOME] = [NOME, PV, NIVEL, INICI, 0, ['', 0], TAMANHO, 1]
-            self.ordem[NOME] = [INICI]
-            self.listboxp.insert(t.END, str(NOME) + ' - ' + str(PV))
-        except:
-            pass
-
-            #Botão Ordenar
+    #Botão Ordenar
 
     def ordenar(self):
         z = self.ordem
