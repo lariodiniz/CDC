@@ -86,15 +86,15 @@ class MontyPython(object):
         self.tagtext = {}
         self.janela = janela
         self.chars = None
-        #Opçõs de janela
+        # Opçõs de janela
         self.janela.title('Controle de Combate - Beta 0.3')
         self.janela.resizable(width=False, height=False)
 
         #Menu Superior
         principal = t.Menu(janela)
         arquivo = t.Menu(principal)
-        arquivo.add_command(label="Abrir", command=self.abrir)
-        arquivo.add_command(label="Salvar", command=self.salvar)
+        arquivo.add_command(label="Abrir", command=self.open)
+        arquivo.add_command(label="Salvar", command=self.save)
         arquivo.add_command(label="Sair", command=self.quit)
         principal.add_cascade(label="Arquivo", menu=arquivo)
         principal.add_command(label="Ajuda", command=self.ajuda)
@@ -366,7 +366,7 @@ class MontyPython(object):
         self.botaocritico.pack(side=t.LEFT, pady=5, padx=5)
 
     # Definindo comando dos Botões--------------------
-    #Criar Matriz de Combate:
+    # Criar Matriz de Combate:
     def critico(self):
         self.janelacr = t.Tk()
         self.janelacr.title('Critico')
@@ -513,7 +513,7 @@ class MontyPython(object):
         head = _("Critico na Cabeça")
         armr = _("Critico no braço direito")
         arml = _("Critico na braço esquerdo")
-        
+
         if ARMA == '0':
             if local == 1:
                 if 1 <= severidade <= 3:
@@ -588,7 +588,7 @@ class MontyPython(object):
                     elif 4 <= severidade <= 6:
                         tkMessageBox.showinfo(armr, _("0_9_1_4_sev_6"))
                     elif 7 <= severidade <= 8:
-                        tkMessageBox.showinfo(armr,_("0_9_1_7_sev_8"))
+                        tkMessageBox.showinfo(armr, _("0_9_1_7_sev_8"))
                     elif 9 <= severidade <= 10:
                         tkMessageBox.showinfo(armr, _("0_9_1_9_sev_10"))
                     elif 11 <= severidade <= 12:
@@ -1117,6 +1117,13 @@ class MontyPython(object):
                                                             anchor=t.CENTER)
                 self.tagtext[nome] = a
 
+    def _retrieve_char_instance_from_listbox(self, lbox_char):
+        """ Compare and tet the character instance that is relative for the
+        listbox selected entry"""
+        lchar = [char for char in self.chars if str(char) == lbox_char]
+        if lchar:
+            return lchar[0]
+
     def change_initiative(self):
         """
         Change the initiative_value of the selected object into the specified
@@ -1125,11 +1132,11 @@ class MontyPython(object):
         new_init = self.campo_altini.get()
         lbox_selection = self.listboxp.curselection()
         if not new_init or not lbox_selection:
-            tkMessageBox.showerror(_("Faltou Informações"),_("alt_ini_error"))
+            tkMessageBox.showerror(_("Faltou Informações"), _("alt_ini_error"))
             return False
 
         lbox_char = self.listboxp.get(lbox_selection[0])
-        lchar = [ char for char in self.chars if str(char) == lbox_char]
+        lchar = self._retrieve_char_instance_from_listbox(lbox_char)
 
         if lchar:
             lchar[0].init_value = new_init
@@ -1146,7 +1153,7 @@ class MontyPython(object):
         char.size = self.tamanho.get()
         char.char_type = 0
         if char.cleaned_data:
-            if not str(char)in self.listboxp.get(0, t.END):
+            if not str(char) in self.listboxp.get(0, t.END):
                 self.listboxp.insert(t.END, char)
                 if not self.chars:
                     self.chars = [char]
@@ -1166,6 +1173,16 @@ class MontyPython(object):
 
         for char in char_sorted:
             self.listboxp.insert(t.END, char)
+
+    def shift_turn(self):
+        """Shift the turn of the selected player or NPC."""
+        if not self.listboxp.curselection():
+            if self.listboxp.get(0, t.END):
+                self.listboxp.activate(0)
+
+
+
+
 
     #Botão Passar Turno
     def passturn(self):
@@ -1200,7 +1217,8 @@ class MontyPython(object):
         except:
             pass
         self.vez = t.Label(self.frame2_2_1_2_2_2, text='Turno: ' +
-                           str(self.turno1), fg='darkblue')
+                                                       str(self.turno1),
+                           fg='darkblue')
         self.vez.pack()
         self.vez1 = t.Label(self.frame2_2_1_2_2_2, text=c, fg='darkblue',
                             font=('Verdana', '12', 'bold'))
@@ -1284,7 +1302,7 @@ class MontyPython(object):
             self.listboxp.insert(a[0], str(self.comba[d[0]][0]) + ' - ' +
                                  str(self.comba[d[0]][1]))
         except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("error_heal"))
+            tkMessageBox.showerror(_("Faltou Informações"), _("error_heal"))
 
     #Botão Dano
     def dano_recebido(self):
@@ -1298,7 +1316,7 @@ class MontyPython(object):
             self.listboxp.insert(a[0], str(self.comba[d[0]][0]) + ' - ' +
                                  str(self.comba[d[0]][1]))
         except:
-            tkMessageBox.showerror(_("Faltou Informações"),_("error_dmg"))
+            tkMessageBox.showerror(_("Faltou Informações"), _("error_dmg"))
 
     #Botão Remover
     def remover(self):
@@ -1328,7 +1346,7 @@ class MontyPython(object):
             elif self.comba[i][7] == 1:
                 NDC += self.comba[i][2]
         if NDC <= NDP - 5:
-            tkMessageBox.showinfo(_("Luta Fácil"),_("easy_fight"))
+            tkMessageBox.showinfo(_("Luta Fácil"), _("easy_fight"))
         else:
             XP = NDC * 300
             XPCJ = XP / GXP
@@ -1337,100 +1355,46 @@ class MontyPython(object):
                                   "jogador que sobrevivel recebe %i XP" % (
                                       XP, XPCJ))
 
-    #Botão Abrir
-    def abrir(self):
-        jan = t.Tk()
-        jan.withdraw()
-        filename = tkFileDialog.askopenfilename(parent=jan,
-                                                title=_('Open file to encrypt'))
-        try:
-            with open(filename, 'rb') as savefile:
-                b = pickle.load(savefile)
-                jan.destroy()
-            self.comba = b[0]
-            self.ordem = b[1]
-            self.turno = b[2]
-            self.turno1 = b[3]
-            self.tagtext = b[4]
-            z = self.ordem
-            y = z
-            w = {}
-            a = 1
-            z = sorted(self.ordem.values())
-            z = z[::-1]
-            for i in z:
-                for x in y:
-                    if y[x] == i:
-                        w[x] = a
-                        a += 1
-            for i in w:
-                for x in self.comba:
-                    if i == x:
-                        self.comba[x][4] = w[i]
-            self.listboxp.delete(0, t.END)
-            for i in range(a):
-                for x in self.comba:
-                    if i + 1 == self.comba[x][4]:
-                        self.listboxp.insert(t.END, str(self.comba[x][0]) +
-                                             ' - ' + str(self.comba[x][1]))
-            fonte1 = ('Ariel', '9', 'bold')
-            a = self.listboxp.get(0, t.END)
-            b = self.listboxp.get(self.turno)
-            b = b.split(' - ')
-            b = b[0]
-            self.NOME = self.comba[b][0]
-            STATUS = self.comba[b][5][0]
-            TURSTA = self.comba[b][5][1]
-            SANGUE = self.comba[b][1]
-            if SANGUE <= 0:
-                self.turno1 += 1
-                c = '%s' % self.NOME
-                d = _('Está fora de combate')
-                if TURSTA > 0:
-                    self.comba[b][5][1] -= 1
-            else:
-                self.turno1 += 1
-                if TURSTA > 0:
-                    c = '%s' % self.NOME
-                    d = '%s por %i turnos' % (STATUS, int(TURSTA))
-                    self.comba[b][5][1] -= 1
-                else:
-                    c = self.NOME
-                    d = ''
-            try:
-                self.vez.destroy()
-                self.vez1.destroy()
-                self.vez2.destroy()
-            except:
-                pass
-            self.vez = t.Label(self.frame2_2_1_2_2_2, text=_('Turno: ') +
-                               str(self.turno1), fg='darkblue')
-            self.vez.pack()
-            self.vez1 = t.Label(self.frame2_2_1_2_2_2, text=c, fg='darkblue',
-                                font=('Verdana', '12', 'bold'))
-            self.vez1.pack()
-            self.vez2 = t.Label(self.frame2_2_1_2_2_2, text=d, fg='darkblue')
-            self.vez2.pack()
-            if self.turno < len(a) - 1:
-                self.turno += 1
-            else:
-                self.turno = 0
-        except IOError:
-            pass
+    def open(self):
+        """
+        Open previously files.
+        """
+        window = t.Tk()
+        window.withdraw()
+        filename = tkFileDialog.askopenfilename(parent=window,
+                                                title=_('Open saved CDC file'))
 
-    def salvar(self):
-        a = [self.comba,
-             self.ordem,
-             self.turno,
-             self.turno1,
-             self.tagtext]
-        z = t.Tk()
-        z.withdraw()
-        savename = tkFileDialog.asksaveasfilename(parent=z,
-                                                  title=_('Salvar combate'))
-        with open(savename, 'wb') as savefile:
-            pickle.dump(a, savefile, protocol=2)
-            z.destroy()
+        with open(filename, 'rb') as savefile:
+            saved_game = pickle.load(savefile)
+            window.destroy()
+
+        self.chars = saved_game[0]
+        self.listboxp.delete(0, t.END)
+
+        for char in saved_game[1]:
+            self.listboxp.insert(t.END, char)
+
+        self.turno = saved_game[2]
+        self.turno1 = saved_game[3]
+
+    def save(self):
+        """
+        Persist all combat information into a file that can be opened later.
+        """
+        content = [self.chars,
+                   self.listboxp.get(0, t.END),
+                   self.turno,
+                   self.turno1,
+                   self.tagtext
+        ]
+        window = t.Tk()
+        window.withdraw()
+        filename = tkFileDialog.asksaveasfilename(parent=window,
+                                              title=_("Save combat info"))
+
+        with open(filename, 'wb') as savefile:
+            pickle.dump(content, savefile, protocol=2)
+            window.destroy()
 
     def quit(self):
         """ Destroy the main window. """
@@ -1443,6 +1407,7 @@ class MontyPython(object):
     def sobre(self):
         tkMessageBox.showinfo(_("Sobre"),
                               _("about"))
+
 
 if __name__ == '__main__':
     swallow = t.Tk()
