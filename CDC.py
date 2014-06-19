@@ -2,6 +2,7 @@
 
 from __future__ import unicode_literals
 import gettext
+from operator import attrgetter
 import six
 import webbrowser
 import pickle
@@ -310,7 +311,7 @@ class MontyPython(object):
                                   font=fonte2, height=2)
         self.t_con_turn.pack()
         self.botaoordcomb = t.Button(self.frame2_1_3_2, text='Ordenar',
-                                     command=self.ordenar)
+                                     command=self.sort)
         self.botaoordcomb.pack(side=t.LEFT, pady=5, padx=5)
         self.botaopassturn = t.Button(self.frame2_1_3_2, text='Passar Turno',
                                       command=self.passturn)
@@ -1179,32 +1180,13 @@ class MontyPython(object):
     #Botão Ordenar
 
     def sort(self):
-        "Sort the Results at the ListBox."
-
-
-    def ordenar(self):
-        z = self.ordem
-        y = z
-        w = {}
-        a = 1
-        z = sorted(self.ordem.values())
-        z = z[::-1]
-        for i in z:
-            for x in y:
-                if y[x] == i:
-                    w[x] = a
-                    a += 1
-        for i in w:
-            for x in self.comba:
-                if i == x:
-                    self.comba[x][4] = w[i]
-
+        "Sort the Results and reinsert into theListBox."
         self.listboxp.delete(0, t.END)
-        for i in range(a):
-            for x in self.comba:
-                if i + 1 == self.comba[x][4]:
-                    self.listboxp.insert(t.END, str(self.comba[x][0]) + ' - ' +
-                                         str(self.comba[x][1]))
+        char_sorted = sorted(self.chars, key=attrgetter('init_value'),
+                             reverse=True)
+
+        for char in char_sorted:
+            self.listboxp.insert(t.END, char)
 
     #Botão Passar Turno
     def passturn(self):
