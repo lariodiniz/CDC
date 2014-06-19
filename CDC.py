@@ -1177,10 +1177,11 @@ class MontyPython(object):
             else:
                 tkMessageBox.showerror(_("Char Already Exists"),
                                        _("name_repeat_error"))
-    #Botão Ordenar
 
     def sort(self):
-        "Sort the Results and reinsert into theListBox."
+        """Sort the Results and reinsert into theListBox.
+        This is the method fired by the button 'ordenar'
+        """
         self.listboxp.delete(0, t.END)
         char_sorted = sorted(self.chars, key=attrgetter('init_value'),
                              reverse=True)
