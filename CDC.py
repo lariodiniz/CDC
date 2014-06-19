@@ -1167,8 +1167,11 @@ class MontyPython(object):
         char.size = self.tamanho.get()
         char.char_type = 0
         if char.cleaned_data:
-            self.listboxp.insert(t.END, char)
-
+            if not str(char)in self.listboxp.get(0, t.END):
+                self.listboxp.insert(t.END, char)
+            else:
+                tkMessageBox.showerror(_("Char Already Exists"),
+                                       _("name_repeat_error"))
     #Botão Ordenar
 
     def ordenar(self):
