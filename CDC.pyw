@@ -36,19 +36,17 @@ class Character(object):
     size = None
     errors = None
 
-
     def clean_int_fields(self, field):
         try:
             int(field)
         except ValueError:
             print("error")
 
-    @property
     def cleaned_data(self):
         """ Check all the fields and runs clean methods for each one """
         if None in [self.name, self.level, self.hp, self.init_value]:
-            print(_("All attributes muste be provided."))
-            return False
+            print("All attributes muste be provided.")
+            #return False
 
         self.clean_int_fields(self.level)
         self.clean_int_fields(self.hp)
