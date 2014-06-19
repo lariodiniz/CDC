@@ -86,7 +86,7 @@ class MontyPython(object):
         self.ordem = {}
         self.tagtext = {}
         self.janela = janela
-
+        self.chars = None
         #Opçõs de janela
         self.janela.title('Controle de Combate - Beta 0.3')
         self.janela.resizable(width=False, height=False)
@@ -1169,10 +1169,18 @@ class MontyPython(object):
         if char.cleaned_data:
             if not str(char)in self.listboxp.get(0, t.END):
                 self.listboxp.insert(t.END, char)
+                if not self.chars:
+                    self.chars = [char]
+                else:
+                    self.chars.append(char)
             else:
                 tkMessageBox.showerror(_("Char Already Exists"),
                                        _("name_repeat_error"))
     #Botão Ordenar
+
+    def sort(self):
+        "Sort the Results at the ListBox."
+
 
     def ordenar(self):
         z = self.ordem
