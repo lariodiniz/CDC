@@ -1199,26 +1199,54 @@ class MontyPython(object):
         for char in char_sorted:
             self.listboxp.insert(t.END, char)
 
+    def _get_or_select_listbox_item(self, next_pos=None):
+        """ Get an item or select the first of the listbox
+        :returns """
+        if not self.chars:
+            tkMessageBox.showerror("Char Error",
+                                   "Char Error")
+            return False
+
+        try:
+            lbox_selection = self.listboxp.curselection()
+            next_lchar = self.listboxp.get(lbox_selection[0]+1)
+            if next_lchar == '':
+                next_lchar = None
+                lbox_selection = None
+        except IndexError:
+            lbox_selection = None
+            next_lchar = None
+
+        if not lbox_selection:
+            print("lbox_selection")
+            self.listboxp.selection_clear(0, t.END)
+            self.listboxp.activate(0)
+            self.listboxp.selection_set(0)
+            lchar = self.listboxp.get(0)
+            self.listboxp.curselection()
+            return lchar
+        elif next_pos and next_lchar:
+            print('next_pos and next_lchar')
+            self.listboxp.selection_clear(0, t.END)
+            self.listboxp.activate(lbox_selection[0]+1)
+            self.listboxp.selection_set(lbox_selection[0]+1)
+            return next_lchar
+
     #TODO: Finish IT!!
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
-        if not self.listboxp.curselection():
-            if self.listboxp.get(0, t.END):
-                self.listboxp.activate(t.FIRST)
-                self.listboxp.selection_set(t.FIRST)
+        next_lchar = self._get_or_select_listbox_item(next_pos=True)
+        char = self._retrieve_char_instance_from_listbox(next_lchar)
 
-        lbox_char = self.listboxp.get(self.listboxp.curselection()[0])
-        char = self._retrieve_char_instance_from_listbox(lbox_char)
-
-        self.turno1 += 1
-        self.vez_text.set(self.turno1)
         self.vez1_text.set(char.name)
+#        self.turno1 += 1
+#        self.vez_text.set(self.turno1)
 
-        if 0 >= char.hp:
-            self.vez2_text.set(_('Out of Combat'))
+#        if 0 >= char.hp:
+#            self.vez2_text.set(_('Out of Combat'))
 
-        if char.status:
-            self.vez2_text.set(_(char.status))
+#        if char.status:
+#            self.vez2_text.set(_(char.status))
 
 
     #TODO: Destroy after finish the shift_turn method.
