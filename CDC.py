@@ -33,6 +33,7 @@ class Character(object):
     init_value = None
     ammo = None
     char_type = None
+    status = None
     size = None
     errors = None
 
@@ -41,7 +42,8 @@ class Character(object):
 
     def clean_int_fields(self, field):
         try:
-            int(field)
+            field = int(field)
+            return field
         except ValueError:
             self.errors = "A INT value must be provided for the field %s" % field
         except TypeError:
@@ -55,9 +57,9 @@ class Character(object):
             self.errors = "All attributes muste be provided."
             return False
 
-        self.clean_int_fields(self.level)
-        self.clean_int_fields(self.hp)
-        self.clean_int_fields(self.init_value)
+        self.level = self.clean_int_fields(self.level)
+        self.hp = self.clean_int_fields(self.hp)
+        self.init_value = self.clean_int_fields(self.init_value)
         return True
 
     def clean_char_type(self):
@@ -1160,12 +1162,11 @@ class MontyPython(object):
             return False
 
         lbox_char = self.listboxp.get(lbox_selection[0])
-        lchar = self._retrieve_char_instance_from_listbox(lbox_char)
+        char = self._retrieve_char_instance_from_listbox(lbox_char)
 
-        if lchar:
-            lchar[0].init_value = new_init
-            self.listboxp.delete(lbox_selection[0])
-            self.listboxp.insert(t.END, lchar[0])
+        char.init_value = new_init
+        self.listboxp.delete(lbox_selection[0])
+        self.listboxp.insert(t.END, char)
 
     def add_char(self, char_type):
         """ Add chars into the list of chars. """
@@ -1203,6 +1204,7 @@ class MontyPython(object):
         """Shift the turn of the selected player or NPC."""
         if not self.listboxp.curselection():
             if self.listboxp.get(0, t.END):
+                self.listboxp.activate(t.FIRST)
                 self.listboxp.selection_set(t.FIRST)
 
         lbox_char = self.listboxp.get(self.listboxp.curselection()[0])
@@ -1212,9 +1214,11 @@ class MontyPython(object):
         self.vez_text.set(self.turno1)
         self.vez1_text.set(char.name)
 
-        if 0 <= char.hp:
-
+        if 0 >= char.hp:
             self.vez2_text.set(_('Out of Combat'))
+
+        if char.status:
+            self.vez2_text.set(_(char.status))
 
 
     #TODO: Destroy after finish the shift_turn method.
