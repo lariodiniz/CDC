@@ -38,7 +38,7 @@ class Character(object):
     errors = None
 
     def __repr__(self):
-        return "%s - %s" % (self.name, self.hp)
+        return "%s - %s.%s" % (self.name, self.hp, self.init_value)
 
     def clean_int_fields(self, field):
         try:
@@ -1156,17 +1156,12 @@ class MontyPython(object):
         value.
         """
         new_init = self.campo_altini.get()
-        lbox_selection = self.listboxp.curselection()
-        if not new_init or not lbox_selection:
-            tkMessageBox.showerror(_("Faltou Informações"), _("alt_ini_error"))
-            return False
-
-        lbox_char = self.listboxp.get(lbox_selection[0])
-        char = self._retrieve_char_instance_from_listbox(lbox_char)
-
-        char.init_value = new_init
-        self.listboxp.delete(lbox_selection[0])
-        self.listboxp.insert(t.END, char)
+        lbox_char, lbox_pos = self._get_or_select_listbox_item()
+        if lbox_char is not None:
+            char = self._retrieve_char_instance_from_listbox(lbox_char)
+            char.init_value = new_init
+            self.listboxp.delete(lbox_pos)
+            self.listboxp.insert(t.END, char)
 
     def add_char(self, char_type):
         """ Add chars into the list of chars. """
@@ -1205,7 +1200,7 @@ class MontyPython(object):
         if not self.chars:
             tkMessageBox.showerror("Char Error",
                                    "Char Error")
-            return False
+            return (None, None)
 
         try:
             lbox_selection = self.listboxp.curselection()
@@ -1222,70 +1217,24 @@ class MontyPython(object):
             self.listboxp.activate(0)
             self.listboxp.selection_set(0)
             lchar = self.listboxp.get(0)
-            self.listboxp.curselection()
-            return lchar
+            lbox_selection = self.listboxp.curselection()
+            return lchar, lbox_selection[0]
+        elif not next_pos:
+            lchar = self.listboxp.get(lbox_selection[0])
+            return lchar, lbox_selection[0]
         elif next_pos and next_lchar:
             self.listboxp.selection_clear(0, t.END)
             self.listboxp.activate(lbox_selection[0]+1)
             self.listboxp.selection_set(lbox_selection[0]+1)
-            return next_lchar
+            return next_lchar, lbox_selection[0]+1
 
     #TODO: Finish IT!!
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
-        next_lchar = self._get_or_select_listbox_item(next_pos=True)
+        next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True)
         char = self._retrieve_char_instance_from_listbox(next_lchar)
 
         self.vez1_text.set(char.name)
-#        self.turno1 += 1
-#        self.vez_text.set(self.turno1)
-
-#        if 0 >= char.hp:
-#            self.vez2_text.set(_('Out of Combat'))
-
-#        if char.status:
-#            self.vez2_text.set(_(char.status))
-
-
-    #TODO: Destroy after finish the shift_turn method.
-    #Botão Passar Turno
-    def passturn(self):
-        fonte1 = ('Ariel', '9', 'bold')
-        a = self.listboxp.get(0, t.END)
-        b = self.listboxp.get(self.turno)
-        b = b.split(' - ')
-        b = b[0]
-        self.NOME = self.comba[b][0]
-        STATUS = self.comba[b][5][0]
-        TURSTA = self.comba[b][5][1]
-        SANGUE = self.comba[b][1]
-        if SANGUE <= 0:
-            self.turno1 += 1
-            self.vez1.destroy()
-            self.vez2.destroy()
-            c = '%s' % self.NOME
-            d = 'Está fora de combate'
-            if TURSTA > 0:
-                self.comba[b][5][1] -= 1
-        else:
-            self.turno1 += 1
-            if TURSTA > 0:
-                c = '%s' % self.NOME
-                d = '%s por %i turnos' % (STATUS, int(TURSTA))
-                self.comba[b][5][1] -= 1
-            else:
-                c = self.NOME
-                d = ''
-        try:
-            self.vez.destroy()
-            self.vez1.destroy()
-            self.vez2.destroy()
-        except:
-            pass
-        if self.turno < len(a) - 1:
-            self.turno += 1
-        else:
-            self.turno = 0
 
     #TODO: Rewrite
     #Botão Adicionar Status    
