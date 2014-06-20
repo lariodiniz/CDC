@@ -1218,7 +1218,6 @@ class MontyPython(object):
             next_lchar = None
 
         if not lbox_selection:
-            print("lbox_selection")
             self.listboxp.selection_clear(0, t.END)
             self.listboxp.activate(0)
             self.listboxp.selection_set(0)
@@ -1226,7 +1225,6 @@ class MontyPython(object):
             self.listboxp.curselection()
             return lchar
         elif next_pos and next_lchar:
-            print('next_pos and next_lchar')
             self.listboxp.selection_clear(0, t.END)
             self.listboxp.activate(lbox_selection[0]+1)
             self.listboxp.selection_set(lbox_selection[0]+1)
