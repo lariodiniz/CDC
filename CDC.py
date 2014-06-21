@@ -27,7 +27,8 @@ if not os.getenv('LANG'):
     lang, enc = locale.getdefaultlocale()
     os.environ['LANG'] = lang
 
-translate = gettext.translation('cdc', os.path.join(PROJECT_ROOT_PATH,'locale'),
+translate = gettext.translation('cdc',
+                                os.path.join(PROJECT_ROOT_PATH, 'locale'),
                                 fallback=True)
 _ = translate.gettext
 
@@ -78,6 +79,7 @@ class Character(object):
         Verify if the chartype defined is one of the expected options.
         """
         raise NotImplementedError
+
 
 #TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
 class MontyPython(object):
@@ -1155,8 +1157,15 @@ class MontyPython(object):
                 self.tagtext[nome] = a
 
     def _retrieve_char_instance_from_listbox(self, lbox_char):
-        """ Compare and tet the character instance that is relative for the
-        listbox selected entry"""
+        """
+        Compare and get the character instance that is relative for the
+        listbox selected entry and return that Character.
+
+        Keyword arguments:
+        lbox_char -- The string that came from the listbox and will be used
+        for search/comparison with the list of character objects. (NoDefault)
+
+        """
         lchar = [char for char in self.chars if str(char) == lbox_char]
         if lchar:
             return lchar[0]
@@ -1174,8 +1183,14 @@ class MontyPython(object):
             self.listboxp.delete(lbox_pos)
             self.listboxp.insert(t.END, char)
 
+    #TODO: Make the use of Char_type.
     def add_char(self, char_type):
-        """ Add chars into the list of chars. """
+        """
+        Add character instances into the list of chars.
+
+        KeyWord arguments:
+        char_type -- The type of the char: 0 for Player, 1 for NPC.
+        """
         char = Character()
         char.name = self.campo_nome.get()
         char.hp = self.campo_pv.get()
@@ -1195,7 +1210,8 @@ class MontyPython(object):
                                        _("name_repeat_error"))
 
     def sort(self):
-        """Sort the Results and reinsert into theListBox.
+        """
+        Sort the Results and reinsert into theListBox.
         This is the method fired by the button 'ordenar'
         """
         self.listboxp.delete(0, t.END)
@@ -1206,8 +1222,10 @@ class MontyPython(object):
             self.listboxp.insert(t.END, char)
 
     def _get_or_select_listbox_item(self, next_pos=None):
-        """ Get an item or select the first of the listbox
-        :returns """
+        """
+        Get an item or select the first of the listbox.
+        Returns the string and position on the list box.
+        """
         if not self.chars:
             tkMessageBox.showerror("Char Error",
                                    "Char Error")
@@ -1247,6 +1265,9 @@ class MontyPython(object):
         self.turno1 += 1
         self.vez_text.set(self.turno1)
         self.vez1_text.set(char.name)
+
+        if char.status:
+            self.vez2_text.set(char.status)
 
     #TODO: Rewrite
     #Botão Adicionar Status    
@@ -1382,7 +1403,7 @@ class MontyPython(object):
 
     def open(self):
         """
-        Open previously files.
+        Open previously saved files.
         """
         window = t.Tk()
         window.withdraw()
