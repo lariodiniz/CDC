@@ -1,12 +1,14 @@
 # -*- coding:UTF-8 -*-
 
 from __future__ import unicode_literals
-import gettext
 from operator import attrgetter
-import six
-import webbrowser
+import gettext
+import locale
+import os
 import pickle
 import random
+import six
+import webbrowser
 
 if six.PY3:
     import tkinter as t
@@ -17,7 +19,16 @@ elif six.PY2:
     import tkMessageBox
     import tkFileDialog
 
-translate = gettext.translation('cdc', 'locale')
+#SetUP the I18N support. On windows, the LANG environment variable doesnt exist
+# and must be got through locale.getdefaultlocale, otherwise the translations
+# will not appear (courtesy of the fallback=True).
+PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+if not os.getenv('LANG'):
+    lang, enc = locale.getdefaultlocale()
+    os.environ['LANG'] = lang
+
+translate = gettext.translation('cdc', os.path.join(PROJECT_ROOT_PATH,'locale'),
+                                fallback=True)
 _ = translate.gettext
 
 
