@@ -1244,6 +1244,8 @@ class MontyPython(object):
         next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True)
         char = self._retrieve_char_instance_from_listbox(next_lchar)
 
+        self.turno1 += 1
+        self.vez_text.set(self.turno1)
         self.vez1_text.set(char.name)
 
     #TODO: Rewrite
