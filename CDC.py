@@ -1228,7 +1228,6 @@ class MontyPython(object):
             self.listboxp.selection_set(lbox_selection[0]+1)
             return next_lchar, lbox_selection[0]+1
 
-    #TODO: Finish IT!!
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
         next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True)
