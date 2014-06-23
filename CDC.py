@@ -35,17 +35,18 @@ _ = translate.gettext
 
 class Character(object):
     """ Base class for players or monsters. """
-    CHAR_TYPE = (
-        (0, 'Player'),
-        (1, 'NPC')
-    )
+    def __init__(self, status = None):
+        if not status:
+            self.status = set()
+        else:
+            self.status = status
+
     name = None
     level = None
     hp = None
     init_value = None
     ammo = None
     char_type = None
-    status = None
     size = None
     errors = None
 
@@ -81,6 +82,8 @@ class Character(object):
         """
         raise NotImplementedError
 
+    def clean_status(self):
+        raise NotImplementedError
 
 #TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
 class MontyPython(object):
@@ -1258,6 +1261,7 @@ class MontyPython(object):
             self.listboxp.selection_set(lbox_selection[0]+1)
             return next_lchar, lbox_selection[0]+1
 
+    #TODO: Reimplement status support with a new way.
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
         next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True)
