@@ -72,6 +72,7 @@ class Character(object):
         self.level = self.clean_int_fields(self.level)
         self.hp = self.clean_int_fields(self.hp)
         self.init_value = self.clean_int_fields(self.init_value)
+        self.char_type = self.clean_int_fields(self.char_type)
         return True
 
     def clean_char_type(self):
@@ -1197,7 +1198,7 @@ class MontyPython(object):
         char.level = self.campo_nivel.get()
         char.init_value = self.campo_iniciativa.get()
         char.size = self.tamanho.get()
-        char.char_type = 0
+        char.char_type = char_type
         if char.cleaned_data:
             if not str(char) in self.listboxp.get(0, t.END):
                 self.listboxp.insert(t.END, char)
