@@ -35,11 +35,8 @@ _ = translate.gettext
 
 class Character(object):
     """ Base class for players or monsters. """
-    def __init__(self, status = None):
-        if not status:
-            self.status = set()
-        else:
-            self.status = status
+    def __init__(self):
+        self.status = set()
 
     name = None
     level = None
