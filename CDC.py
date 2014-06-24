@@ -376,7 +376,7 @@ class MontyPython(object):
         self.explitabp.pack()
         self.scrollbarp = t.Scrollbar(self.frame2_2_1_2_1_2)
         self.scrollbarp.pack(side=t.RIGHT)
-        self.listboxp = t.Listbox(self.frame2_2_1_2_1_2)
+        self.listboxp = t.Listbox(self.frame2_2_1_2_1_2, exportselection=0)
         self.listboxp.pack()
         self.listboxp.config(yscrollcommand=self.scrollbarp.set)
         self.scrollbarp.config(command=self.listboxp.yview)
@@ -1308,16 +1308,16 @@ class MontyPython(object):
                                     height=1)
         status_type_title.pack()
 
-        stat_type = t.IntVar()
-        stat_type.set(0)
+        stat_type = t.StringVar()
+        stat_type.set('Static')
 
         stat_choice1 = t.Radiobutton(frame2_2, text=_('static_choice'),
-                                     variable=stat_type, value=0,
+                                     variable=stat_type, value=_('Static'),
                                      command=lambda: status_turn.configure(
                                          state='normal')).pack()
 
         stat_choice2 = t.Radiobutton(frame2_2, text=_('static_choice'),
-                                     variable=stat_type, value=1,
+                                     variable=stat_type, value=_('Continuous'),
                                      command=lambda: status_turn.configure(
                                          state='disabled')).pack()
 
