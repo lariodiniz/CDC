@@ -19,7 +19,7 @@ elif six.PY2:
     import tkMessageBox
     import tkFileDialog
 
-#SetUP the I18N support. On windows, the LANG environment variable doesnt exist
+# SetUP the I18N support. On windows, the LANG environment variable doesnt exist
 # and must be got through locale.getdefaultlocale, otherwise the translations
 # will not appear (courtesy of the fallback=True).
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -35,9 +35,10 @@ _ = translate.gettext
 
 class Character(object):
     """ Base class for players or monsters. """
-    def __init__(self):
-        self.status = set()
-
+    CHAR_STATUS_TYPE = (
+        ('Finite/Static', 0),
+        ('Resistance Test', 1)
+    )
     name = None
     level = None
     hp = None
@@ -47,6 +48,9 @@ class Character(object):
     size = None
     errors = None
 
+    def __init__(self):
+        self.status = set()
+
     def __repr__(self):
         return "%s - %s.%s" % (self.name, self.hp, self.init_value)
 
@@ -55,7 +59,8 @@ class Character(object):
             field = int(field)
             return field
         except ValueError:
-            self.errors = "A INT value must be provided for the field %s" % field
+            self.errors = "A INT value must be provided for the field %s" \
+                          % field
         except TypeError:
             self.errors = "No value defined for field %s" % field
 
@@ -81,6 +86,7 @@ class Character(object):
 
     def clean_status(self):
         raise NotImplementedError
+
 
 #TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
 class MontyPython(object):
@@ -232,7 +238,7 @@ class MontyPython(object):
         self.vez1_text = t.StringVar()
         self.vez2_text = t.StringVar()
 
-        self.vez_text.set('Turno: 1',)
+        self.vez_text.set('Turno: 1', )
         self.vez1_text.set('Not Selected')
         self.vez2_text.set('Not Selected')
 
@@ -338,7 +344,7 @@ class MontyPython(object):
         self.campo_dias = t.Entry(self.frame2_1_2_2_2_2_2, width=10)
         self.campo_dias.pack(side=t.LEFT)
         self.botaoaddsta = t.Button(self.frame2_1_2_3, text='ADD Outros Status',
-                                    command=self.addstatus)
+                                    command=self._create_add_status_window)
         self.botaoaddsta.pack(pady=5, padx=5)
 
         #Campo Controle de Turno(contido no frame2_1_3)
@@ -1234,7 +1240,7 @@ class MontyPython(object):
 
         try:
             lbox_selection = self.listboxp.curselection()
-            next_lchar = self.listboxp.get(lbox_selection[0]+1)
+            next_lchar = self.listboxp.get(lbox_selection[0] + 1)
             if next_lchar == '':
                 next_lchar = None
                 lbox_selection = None
@@ -1254,9 +1260,9 @@ class MontyPython(object):
             return lchar, lbox_selection[0]
         elif next_pos and next_lchar:
             self.listboxp.selection_clear(0, t.END)
-            self.listboxp.activate(lbox_selection[0]+1)
-            self.listboxp.selection_set(lbox_selection[0]+1)
-            return next_lchar, lbox_selection[0]+1
+            self.listboxp.activate(lbox_selection[0] + 1)
+            self.listboxp.selection_set(lbox_selection[0] + 1)
+            return next_lchar, lbox_selection[0] + 1
 
     #TODO: Reimplement status support with a new way.
     def shift_turn(self):
@@ -1271,8 +1277,77 @@ class MontyPython(object):
         if char.status:
             self.vez2_text.set(char.status)
 
+    def _create_add_status_window(self):
+        """
+        Create the Add Status window and call the add_Status method
+        with the values written into the fields
+        """
+        lchar, lchar_pos = self._get_or_select_listbox_item()
+        char = self._retrieve_char_instance_from_listbox(lchar)
+
+        window_status = t.Toplevel()
+        window_status.title('Status or Condition')
+        window_status.resizable(width=False, height=False)
+
+        frame1 = t.Frame(window_status)
+        frame1.pack()
+        title = t.Label(frame1, text=_("Fill the status"), width=70, height=2)
+        title.pack()
+
+        frame2 = t.Frame(window_status)
+        frame2.pack()
+
+        frame2_1 = t.Frame(frame2)
+        frame2_1.pack(side=t.LEFT)
+        status_title = t.Label(frame2_1, text=_("Status Name"), width=20,
+                               height=1)
+        status_value = t.Entry(frame2_1, width=20)
+        status_title.pack()
+        status_value.pack()
+
+        frame2_2 = t.Frame(frame2)
+        frame2_2.pack(side=t.RIGHT)
+        status_type_title = t.Label(frame2_2, text=_("Status Type"), width=20,
+                                    height=1)
+        status_type_title.pack()
+
+        stat_type = t.IntVar()
+        stat_type.set(1)
+
+        for char_status in char.CHAR_STATUS_TYPE:
+            t.Radiobutton(frame2_2, text=_(char_status[0]), variable=stat_type,
+                          value=char_status[1]).pack()
+
+        frame3 = t.Frame(window_status)
+        frame3.pack()
+
+        frame3_1 = t.Frame(frame3)
+        frame3_1.pack(side=t.LEFT)
+        status_turn_title = t.Label(frame3_1, text=_("Number of Turns"),
+                                    width=20, height=1)
+        status_turn_title.pack()
+        status_turn = t.Entry(frame3, width=20)
+        status_turn.pack()
+
+        frame4 = t.Frame(window_status)
+        frame4.pack()
+
+        status_submit = t.Button(frame4, width=14, text=_("Add Status"),
+                                 command=lambda: self.add_status(
+                                     {'status': status_value.get(),
+                                      'status_type': stat_type.get(),
+                                      'status_turn': status_turn.get()}
+                                 ))
+        status_submit.pack()
+
+    def add_status(self, status_value):
+        """
+        Add a new status for a specific character.
+        """
+        print(status_value)
+
     #TODO: Rewrite
-    #Botão Adicionar Status    
+    #Botão Adicionar Status
     def addstatus(self):
         try:
             a = map(int, self.listboxp.curselection())
@@ -1438,7 +1513,7 @@ class MontyPython(object):
         window = t.Tk()
         window.withdraw()
         filename = tkFileDialog.asksaveasfilename(parent=window,
-                                              title=_("Save combat info"))
+                                                  title=_("Save combat info"))
 
         with open(filename, 'wb') as savefile:
             pickle.dump(content, savefile, protocol=2)
