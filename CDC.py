@@ -1312,11 +1312,17 @@ class MontyPython(object):
         status_type_title.pack()
 
         stat_type = t.IntVar()
-        stat_type.set(1)
+        stat_type.set(0)
 
-        for char_status in char.CHAR_STATUS_TYPE:
-            t.Radiobutton(frame2_2, text=_(char_status[0]), variable=stat_type,
-                          value=char_status[1]).pack()
+        stat_choice1 = t.Radiobutton(frame2_2, text=_('static_choice'),
+                                     variable=stat_type, value=0,
+                                     command=lambda: status_turn.configure(
+                                         state='normal')).pack()
+
+        stat_choice2 = t.Radiobutton(frame2_2, text=_('static_choice'),
+                                     variable=stat_type, value=1,
+                                     command=lambda: status_turn.configure(
+                                         state='disabled')).pack()
 
         frame3 = t.Frame(window_status)
         frame3.pack()
