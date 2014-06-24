@@ -1311,12 +1311,12 @@ class MontyPython(object):
         stat_type = t.StringVar()
         stat_type.set('Static')
 
-        stat_choice1 = t.Radiobutton(frame2_2, text=_('static_choice'),
+        stat_choice1 = t.Radiobutton(frame2_2, text=_('Static'),
                                      variable=stat_type, value=_('Static'),
                                      command=lambda: status_turn.configure(
                                          state='normal')).pack()
 
-        stat_choice2 = t.Radiobutton(frame2_2, text=_('static_choice'),
+        stat_choice2 = t.Radiobutton(frame2_2, text=_('Resistance Test'),
                                      variable=stat_type, value=_('Continuous'),
                                      command=lambda: status_turn.configure(
                                          state='disabled')).pack()
