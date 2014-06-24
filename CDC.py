@@ -88,7 +88,7 @@ class Character(object):
         raise NotImplementedError
 
 
-#TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
+# TODO: SomeFields and strings maybe in EN_US with i18n support i guess.
 class MontyPython(object):
     """
         Programa para Mestres de Tormenta RPG, que consiste em uma serie de
@@ -1282,9 +1282,6 @@ class MontyPython(object):
         Create the Add Status window and call the add_Status method
         with the values written into the fields
         """
-        lchar, lchar_pos = self._get_or_select_listbox_item()
-        char = self._retrieve_char_instance_from_listbox(lchar)
-
         window_status = t.Toplevel()
         window_status.title('Status or Condition')
         window_status.resizable(width=False, height=False)
@@ -1340,9 +1337,9 @@ class MontyPython(object):
 
         status_submit = t.Button(frame4, width=14, text=_("Add Status"),
                                  command=lambda: self.add_status(
-                                     {'status': status_value.get(),
-                                      'status_type': stat_type.get(),
-                                      'status_turn': status_turn.get()}
+                                     (status_value.get(),
+                                      stat_type.get(),
+                                      status_turn.get())
                                  ))
         status_submit.pack()
 
@@ -1350,55 +1347,10 @@ class MontyPython(object):
         """
         Add a new status for a specific character.
         """
-        print(status_value)
+        lchar, lchar_pos = self._get_or_select_listbox_item()
+        char = self._retrieve_char_instance_from_listbox(lchar)
 
-    #TODO: Rewrite
-    #Botão Adicionar Status
-    def addstatus(self):
-        try:
-            a = map(int, self.listboxp.curselection())
-            c = self.listboxp.get(a[0], last=None)
-            c = c.split(' - ')
-            self.nomestat = c[0]
-            self.z = t.Tk()
-            self.z.title('Status')
-            self.z.resizable(width=False, height=False)
-            frame1 = t.Frame(self.z)
-            frame1.pack()
-            frame2 = t.Frame(self.z)
-            frame2.pack()
-            frame21 = t.Frame(frame2)
-            frame21.pack(side=t.LEFT)
-            frame22 = t.Frame(frame2)
-            frame22.pack(side=t.LEFT)
-            frame3 = t.Frame(self.z)
-            frame3.pack()
-            titulo = t.Label(frame1, text=_('Preencha o Status'), width=20,
-                             height=2)
-            titulo.pack()
-            desst = t.Label(frame21, text=_('Descrição do Status'), width=20,
-                            height=2)
-            desst.pack()
-            self.campo_desst = t.Entry(frame21, width=20)
-            self.campo_desst.pack()
-            turnat = t.Label(frame22, text=_('Duração(turnos)'), width=20,
-                             height=2)
-            turnat.pack()
-            self.campo_turnat = t.Entry(frame22, width=10)
-            self.campo_turnat.pack()
-            botaostatus = t.Button(frame3, width=14, text=_('ADD Status'),
-                                   command=self.status)
-            botaostatus.pack()
-        except:
-            tkMessageBox.showinfo(_("Combatente não selecionado"),
-                                  _("char_error"))
-
-    #TODO: Rewrite
-    #Botão Status 
-    def status(self):
-        self.comba[self.nomestat][5][0] = self.campo_desst.get()
-        self.comba[self.nomestat][5][1] = int(self.campo_turnat.get())
-        self.z.destroy()
+        char.status.add(status_value)
 
     #TODO: Rewrite.
     #Botão Passar Dias    
