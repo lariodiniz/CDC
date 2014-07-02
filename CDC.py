@@ -880,7 +880,7 @@ class MontyPython(object):
         try:
             lbox_selection = self.listboxp.curselection()
             next_lchar = self.listboxp.get(lbox_selection[0] + 1)
-            if next_lchar == '':
+            if next_lchar == '' and next_pos is True:
                 next_lchar = None
                 lbox_selection = None
         except IndexError:
