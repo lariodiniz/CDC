@@ -1057,14 +1057,19 @@ class MontyPython(object):
             ]
 
         for npc in npcs:
-            if pcs and npcs:
                 xp += [value[1] for value in xp_table if value[0] == npc.level][
                     0]
 
-        tkMessageBox.showinfo(_("XP ganho"),
-                              "Esse combate da um total de %i XP \n cada "
-                              "jogador que sobreviveu "
-                              "recebe %i XP" % (xp, xp / pcs))
+        if pcs:
+            tkMessageBox.showinfo(_("XP ganho"),
+                                  "Esse combate da um total de %i XP \n cada "
+                                  "jogador que sobreviveu "
+                                  "recebe %i XP" % (xp, xp / pcs))
+        else:
+            tkMessageBox.showinfo(_("XP ganho"),
+                                  "Não foram adicionados Personagens Jogadores."
+                                  "Sem Experiência."
+            )
 
     def open(self):
         """
