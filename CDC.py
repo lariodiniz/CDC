@@ -326,7 +326,7 @@ class MontyPython(object):
         self.campo_recuperacao.pack(side=t.LEFT)
         self.botaodano = t.Button(self.frame2_1_2_2_1_2_2, width=14,
                                   text='Causar Dano',
-                                  command=self.dano_recebido)
+                                  command=self.subtract_hitpoints)
         self.botaodano.pack(side=t.LEFT)
         self.campo_dano = t.Entry(self.frame2_1_2_2_1_2_2, width=10)
         self.campo_dano.pack(side=t.LEFT)
@@ -831,6 +831,21 @@ class MontyPython(object):
             valid_hp = char.clean_int_fields(extra_hp)
             if valid_hp:
                 char.hp = char.hp + valid_hp
+                self.listboxp.delete(lbox_pos)
+                self.listboxp.insert(t.END, char)
+
+    def subtract_hitpoints(self):
+        """
+        Subtracts the specified int value from the target's hitpoints.
+        """
+        sub_hp = self.campo_dano.get()
+        lbox_char, lbox_pos = self._get_or_select_listbox_item()
+        if lbox_char is not None:
+            char = self._retrieve_char_instance_from_listbox(lbox_char)
+            valid_hp = char.clean_int_fields(sub_hp)
+            print(char, lbox_pos)
+            if valid_hp:
+                char.hp = char.hp - valid_hp
                 self.listboxp.delete(lbox_pos)
                 self.listboxp.insert(t.END, char)
 
