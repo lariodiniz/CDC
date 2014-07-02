@@ -1069,9 +1069,11 @@ class MontyPython(object):
         filename = tkFileDialog.askopenfilename(parent=window,
                                                 title=_('Open saved CDC file'))
 
-        with open(filename, 'rb') as savefile:
-            saved_game = pickle.load(savefile)
-            window.destroy()
+        if filename:
+            with open(filename, 'rb') as savefile:
+                saved_game = pickle.load(savefile)
+
+        window.destroy()
 
         self.chars = saved_game[0]
         self.listboxp.delete(0, t.END)
@@ -1097,9 +1099,11 @@ class MontyPython(object):
         filename = tkFileDialog.asksaveasfilename(parent=window,
                                                   title=_("Save combat info"))
 
-        with open(filename, 'wb') as savefile:
-            pickle.dump(content, savefile, protocol=2)
-            window.destroy()
+        if filename:
+            with open(filename, 'wb') as savefile:
+                pickle.dump(content, savefile, protocol=2)
+
+        window.destroy()
 
     def quit(self):
         """ Destroy the main window. """
