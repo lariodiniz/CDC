@@ -34,11 +34,14 @@ _ = translate.gettext
 
 
 class Character(object):
-    """ Base class for players or monsters. """
+    """ Base class for players or monsters creation.
+
     CHAR_STATUS_TYPE = (
-        ('Finite/Static', 0),
-        ('Resistance Test', 1)
+        ('Player', 0),
+        ('NPC', 1)
     )
+    """
+
     name = None
     level = None
     hp = None
