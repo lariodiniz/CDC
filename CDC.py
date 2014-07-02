@@ -794,20 +794,6 @@ class MontyPython(object):
             self.listboxp.delete(lbox_pos)
             self.listboxp.insert(t.END, char)
 
-    def add_hitpoints(self):
-        """
-        Add the specified int value to the target HitPoints
-        """
-        extra_hp = self.campo_recuperacao.get()
-        lbox_char, lbox_pos = self._get_or_select_listbox_item()
-        if lbox_char is not None:
-            char = self._retrieve_char_instance_from_listbox(lbox_char)
-            valid_hp = char.clean_int_fields(extra_hp)
-            if valid_hp:
-                char.hp = char.hp + valid_hp
-                self.listboxp.delete(lbox_pos)
-                self.listboxp.insert(lbox_pos, char)
-
     #TODO: Make the use of Char_type.
     def add_char(self, char_type):
         """
@@ -833,6 +819,20 @@ class MontyPython(object):
             else:
                 tkMessageBox.showerror(_("Char Already Exists"),
                                        _("name_repeat_error"))
+
+    def add_hitpoints(self):
+        """
+        Add the specified int value to the target HitPoints
+        """
+        extra_hp = self.campo_recuperacao.get()
+        lbox_char, lbox_pos = self._get_or_select_listbox_item()
+        if lbox_char is not None:
+            char = self._retrieve_char_instance_from_listbox(lbox_char)
+            valid_hp = char.clean_int_fields(extra_hp)
+            if valid_hp:
+                char.hp = char.hp + valid_hp
+                self.listboxp.delete(lbox_pos)
+                self.listboxp.insert(t.END, char)
 
     def sort(self):
         """
