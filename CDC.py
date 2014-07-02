@@ -61,8 +61,10 @@ class Character(object):
         except ValueError:
             self.errors = "A INT value must be provided for the field %s" \
                           % field
+            return False
         except TypeError:
             self.errors = "No value defined for field %s" % field
+            return False
 
     @property
     def cleaned_data(self):
@@ -318,7 +320,7 @@ class MontyPython(object):
                                   font=fonte2)
         self.t_con_sta1.pack()
         self.botaocura = t.Button(self.frame2_1_2_2_1_2_1, width=14,
-                                  text='Curar', command=self.curar)
+                                  text='Curar', command=self.add_hitpoints)
         self.botaocura.pack(side=t.LEFT)
         self.campo_recuperacao = t.Entry(self.frame2_1_2_2_1_2_1, width=10)
         self.campo_recuperacao.pack(side=t.LEFT)
@@ -357,14 +359,6 @@ class MontyPython(object):
         self.botaopassturn = t.Button(self.frame2_1_3_2, text='Passar Turno',
                                       command=self.shift_turn)
         self.botaopassturn.pack(side=t.LEFT, pady=5, padx=5)
-
-        #Campo Tabuleiro de Combate(contido no frame2_1_4)
-        self.t_tab_con = t.Label(self.frame2_1_4_1, text='Tabuleiro de Combate',
-                                 font=fonte2, height=2)
-        self.t_tab_con.pack()
-        self.botaoaddsta = t.Button(self.frame2_1_4_2, text='Gerar Tabuleiro',
-                                    command=self.gerarmatriz)
-        self.botaoaddsta.pack(side=t.LEFT, pady=5, padx=5)
 
         #Campo Combate(contido no frame2_2_1)
         self.t_con = t.Label(self.frame2_2_1_1, text='Combate', font=fonte2)
@@ -800,6 +794,20 @@ class MontyPython(object):
             self.listboxp.delete(lbox_pos)
             self.listboxp.insert(t.END, char)
 
+    def add_hitpoints(self):
+        """
+        Add the specified int value to the target HitPoints
+        """
+        extra_hp = self.campo_recuperacao.get()
+        lbox_char, lbox_pos = self._get_or_select_listbox_item()
+        if lbox_char is not None:
+            char = self._retrieve_char_instance_from_listbox(lbox_char)
+            valid_hp = char.clean_int_fields(extra_hp)
+            if valid_hp:
+                char.hp = char.hp + valid_hp
+                self.listboxp.delete(lbox_pos)
+                self.listboxp.insert(lbox_pos, char)
+
     #TODO: Make the use of Char_type.
     def add_char(self, char_type):
         """
@@ -976,6 +984,7 @@ class MontyPython(object):
                                      str(self.comba[i][1]))
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("days_error"))
+
 
     #TODO: Rewwrite
     #Botão Curar
