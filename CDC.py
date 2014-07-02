@@ -872,8 +872,10 @@ class MontyPython(object):
 
     def _get_or_select_listbox_item(self, next_pos=None, autoselect=None):
         """
-        Get an item or select the first of the listbox.
-        Returns the string and position on the list box.
+        Get an item or select the first of the listbox if the autoselect is
+        True.
+
+        Returns the string and position in the list box.
         """
         try:
             lbox_selection = self.listboxp.curselection()
@@ -887,8 +889,8 @@ class MontyPython(object):
 
         if not lbox_selection:
             if not autoselect:
-                tkMessageBox.showerror("Char Error",
-                                       "Char Error")
+                tkMessageBox.showerror(_("Char Error"),
+                                       _("Char Error"))
                 return None, None
 
             self.listboxp.selection_clear(0, t.END)
