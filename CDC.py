@@ -911,7 +911,8 @@ class MontyPython(object):
     #TODO: Reimplement status support with a new way.
     def shift_turn(self):
         """Shift the turn of the selected player or NPC."""
-        next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True)
+        next_lchar, char_pos = self._get_or_select_listbox_item(next_pos=True,
+                                                                autoselect=True)
         char = self._retrieve_char_instance_from_listbox(next_lchar)
 
         self.turno1 += 1
