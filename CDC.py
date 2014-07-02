@@ -1009,19 +1009,6 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("days_error"))
 
-    #TODO REWRITE
-    #Botão Remover
-    def remover(self):
-        try:
-            b = map(int, self.listboxp.curselection())
-            c = self.listboxp.get(b[0], last=None)
-            d = c.split(' - ')
-            del self.comba[d[0]]
-            self.listboxp.delete(t.ANCHOR)
-        except:
-            tkMessageBox.showinfo(_("Combatente não selecionado"),
-                                  _("char_error"))
-
     #TODO: Make modules and extendables interfaces.
     #Botão Calculo de XP
     def calculoxp(self):
