@@ -114,7 +114,7 @@ class MontyPython(object):
         self.janela.title('Controle de Combate - Beta 0.3')
         self.janela.resizable(width=False, height=False)
 
-        #Menu Superior
+        # Menu Superior
         principal = t.Menu(janela)
         arquivo = t.Menu(principal)
         arquivo.add_command(label="Abrir", command=self.open)
@@ -396,14 +396,14 @@ class MontyPython(object):
                              width=10)
         self.t_out.pack()
         self.botaoxp = t.Button(self.frame2_2_3_2, text='Calcular XP',
-                                font=fonte1, command=self.calculoxp)
+                                font=fonte1, command=self.calculate_xp)
         self.botaoxp.pack(side=t.LEFT, pady=5, padx=5)
         self.botaocritico = t.Button(self.frame2_2_3_2, text='Acerto Critico',
                                      font=fonte1, command=self.critico)
         self.botaocritico.pack(side=t.LEFT, pady=5, padx=5)
 
 
-    #TODO: Rewrite
+    # TODO: Rewrite
     def critico(self):
         self.janelacr = t.Tk()
         self.janelacr.title('Critico')
@@ -823,7 +823,7 @@ class MontyPython(object):
         """
         Delete a character from the listbox and chars list.
         """
-        lbox_char,lbox_pos = self._get_or_select_listbox_item()
+        lbox_char, lbox_pos = self._get_or_select_listbox_item()
         if lbox_char is not None:
             char = self._retrieve_char_instance_from_listbox(lbox_char)
             self.chars.remove(char)
@@ -1009,31 +1009,56 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("days_error"))
 
-    #TODO: Make modules and extendables interfaces.
-    #Botão Calculo de XP
-    def calculoxp(self):
-        NDC = 0
-        NDP = 0
-        GXP = 0
-        XP = 0
-        XPCJ = 0
-        z = self.comba.keys()
-        for i in z:
-            if self.comba[i][7] == 0:
-                NDP += self.comba[i][2]
-                if self.comba[i][1] > 0:
-                    GXP += 1
-            elif self.comba[i][7] == 1:
-                NDC += self.comba[i][2]
-        if NDC <= NDP - 5:
-            tkMessageBox.showinfo(_("Luta Fácil"), _("easy_fight"))
-        else:
-            XP = NDC * 300
-            XPCJ = XP / GXP
-            tkMessageBox.showinfo(_("XP ganho"),
-                                  "Esse combate da um total de %i XP \n Cada "
-                                  "jogador que sobrevivel recebe %i XP" % (
-                                      XP, XPCJ))
+    def calculate_xp(self, xp_table=None):
+        """
+        Calculate the experience gained using a xp_table and the level of the
+        NPC's (character type == 1) dividing the second value of xp_table tuple
+        by the number of players (character type == 0).
+
+        Default: if no xp_table is provided, the default is to use the
+        PathFinder experience table per level.
+        """
+        npcs = [char for char in self.chars if char.char_type == 1]
+        pcs = len([char for char in self.chars if char.char_type == 0])
+        xp = 0
+        if not xp_table:
+            xp_table = [
+                (1, 400),
+                (2, 600),
+                (3, 800),
+                (4, 1200),
+                (5, 1600),
+                (6, 2400),
+                (7, 3200),
+                (8, 4800),
+                (9, 6400),
+                (10, 9600),
+                (11, 12800),
+                (12, 19200),
+                (13, 25600),
+                (14, 38400),
+                (15, 51200),
+                (16, 76800),
+                (17, 102400),
+                (18, 153600),
+                (19, 204800),
+                (20, 307200),
+                (21, 409600),
+                (22, 615000),
+                (23, 82000),
+                (24, 1230000),
+                (25, 1640000),
+            ]
+
+        for npc in npcs:
+            if pcs or npcs:
+                xp += [value[1] for value in xp_table if value[0] == npc.level][
+                    0]
+
+        tkMessageBox.showinfo(_("XP ganho"),
+                              "Esse combate da um total de %i XP \n cada "
+                              "jogador que sobreviveu "
+                              "recebe %i XP" % (xp, xp / pcs))
 
     def open(self):
         """
