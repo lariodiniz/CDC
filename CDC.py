@@ -375,7 +375,7 @@ class MontyPython(object):
         self.listboxp.config(yscrollcommand=self.scrollbarp.set)
         self.scrollbarp.config(command=self.listboxp.yview)
         self.botaoremover = t.Button(self.frame2_2_1_2_1_3, text='Remover',
-                                     font=fonte1, command=self.remover)
+                                     font=fonte1, command=self.delete_char)
         self.botaoremover.pack()
         self.vez = t.Label(self.frame2_2_1_2_2_1, text='Turno do combatente:',
                            font=fonte1)
@@ -794,7 +794,6 @@ class MontyPython(object):
             self.listboxp.delete(lbox_pos)
             self.listboxp.insert(t.END, char)
 
-    #TODO: Make the use of Char_type.
     def add_char(self, char_type):
         """
         Add character instances into the list of chars.
@@ -819,6 +818,16 @@ class MontyPython(object):
             else:
                 tkMessageBox.showerror(_("Char Already Exists"),
                                        _("name_repeat_error"))
+
+    def delete_char(self):
+        """
+        Delete a character from the listbox and chars list.
+        """
+        lbox_char,lbox_pos = self._get_or_select_listbox_item()
+        if lbox_char is not None:
+            char = self._retrieve_char_instance_from_listbox(lbox_char)
+            self.chars.remove(char)
+            self.listboxp.delete(lbox_pos)
 
     def add_hitpoints(self):
         """
