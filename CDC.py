@@ -870,16 +870,11 @@ class MontyPython(object):
         for char in char_sorted:
             self.listboxp.insert(t.END, char)
 
-    def _get_or_select_listbox_item(self, next_pos=None):
+    def _get_or_select_listbox_item(self, next_pos=None, autoselect=None):
         """
         Get an item or select the first of the listbox.
         Returns the string and position on the list box.
         """
-        if not self.chars:
-            tkMessageBox.showerror("Char Error",
-                                   "Char Error")
-            return (None, None)
-
         try:
             lbox_selection = self.listboxp.curselection()
             next_lchar = self.listboxp.get(lbox_selection[0] + 1)
@@ -891,6 +886,11 @@ class MontyPython(object):
             next_lchar = None
 
         if not lbox_selection:
+            if not autoselect:
+                tkMessageBox.showerror("Char Error",
+                                       "Char Error")
+                return None, None
+
             self.listboxp.selection_clear(0, t.END)
             self.listboxp.activate(0)
             self.listboxp.selection_set(0)
