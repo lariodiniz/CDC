@@ -1057,7 +1057,7 @@ class MontyPython(object):
             ]
 
         for npc in npcs:
-            if pcs or npcs:
+            if pcs and npcs:
                 xp += [value[1] for value in xp_table if value[0] == npc.level][
                     0]
 
