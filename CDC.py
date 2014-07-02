@@ -1000,37 +1000,6 @@ class MontyPython(object):
         except:
             tkMessageBox.showerror(_("Faltou Informações"), _("days_error"))
 
-
-    #TODO: Rewwrite
-    #Botão Curar
-    def curar(self):
-        try:
-            CURA = self.campo_recuperacao.get()
-            a = map(int, self.listboxp.curselection())
-            c = self.listboxp.get(a[0], last=None)
-            d = c.split(' - ')
-            self.comba[d[0]][1] += int(CURA)
-            self.listboxp.delete(t.ANCHOR)
-            self.listboxp.insert(a[0], str(self.comba[d[0]][0]) + ' - ' +
-                                 str(self.comba[d[0]][1]))
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"), _("error_heal"))
-
-    #TODO: Rewrite
-    #Botão Dano
-    def dano_recebido(self):
-        try:
-            DANO = self.campo_dano.get()
-            a = map(int, self.listboxp.curselection())
-            c = self.listboxp.get(a[0], last=None)
-            d = c.split(' - ')
-            self.comba[d[0]][1] -= int(DANO)
-            self.listboxp.delete(t.ANCHOR)
-            self.listboxp.insert(a[0], str(self.comba[d[0]][0]) + ' - ' +
-                                 str(self.comba[d[0]][1]))
-        except:
-            tkMessageBox.showerror(_("Faltou Informações"), _("error_dmg"))
-
     #TODO REWRITE
     #Botão Remover
     def remover(self):
